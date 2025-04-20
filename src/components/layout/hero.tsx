@@ -18,6 +18,8 @@ import {
 	Portal,
 	Link,
 	Center,
+	Menu,
+	MenuItem,
 } from "@chakra-ui/react";
 import { Menu01Icon } from "hugeicons-react";
 import { motion } from "framer-motion";
@@ -33,16 +35,41 @@ export const Hero = () => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			drawerSetOpen(true);
-		}, 35000); 
+		}, 35000);
 
 		return () => clearInterval(interval);
 	}, []);
 
 	const navItems = [
-		{ label: "About", href: "/#about" },
-		{ label: "Schedule", href: "/#schedule" },
-		{ label: "Speakers", href: "/#speakers" },
+		{
+			label: "About",
+			href: "/#about",
+			menuItems: [
+				{ label: "Our Story", href: "/about/story" },
+				{ label: "Team", href: "/about/team" },
+				{ label: "Vision", href: "/about/vision" },
+			],
+		},
+		{
+			label: "Schedule",
+			href: "/#schedule",
+			menuItems: [
+				{ label: "Day 1", href: "/schedule/day-1" },
+				{ label: "Day 2", href: "/schedule/day-2" },
+				{ label: "Workshops", href: "/schedule/workshops" },
+			],
+		},
+		{
+			label: "Speakers",
+			href: "/#speakers",
+			menuItems: [
+				{ label: "Keynotes", href: "/speakers/keynotes" },
+				{ label: "Panelists", href: "/speakers/panelists" },
+				{ label: "Industry Experts", href: "/speakers/experts" },
+			],
+		},
 	];
+
 	return (
 		<Box
 			h="100vh"
@@ -71,20 +98,25 @@ export const Hero = () => {
 									width="100px"
 									objectFit="cover"
 								/>
-								<Center flexDir="column" color="primary" fontSize="0.7rem" fontWeight="600">
-									<Text fontFamily="var(--font-inter)">
-										28 - 29 May 2025{" "}
-									</Text>
-									<Text fontFamily="var(--font-inter)">
-										SME Summit 2025
-									</Text>
+								<Center
+									flexDir="column"
+									color="primary"
+									fontSize="0.7rem"
+									fontWeight="600"
+								>
+									<Text fontFamily="var(--font-inter)">28 - 29 May 2025 </Text>
+									<Text fontFamily="var(--font-inter)">SME Summit 2025</Text>
 								</Center>
 							</Flex>
 
 							{/* Desktop Nav */}
 							<HStack gap={6} display={{ base: "none", md: "flex" }}>
-								{navItems.map((item: { label: string; href: string }) => (
-									<NavLink key={item.label} href={item.href}>
+								{navItems.map((item) => (
+									<NavLink
+										key={item.label}
+										href={item.href}
+										menuItems={item.menuItems}
+									>
 										{item.label}
 									</NavLink>
 								))}
@@ -140,7 +172,11 @@ export const Hero = () => {
 													gap={2}
 												>
 													{navItems.map((item) => (
-														<NavLink key={item.label} href={item.href}>
+														<NavLink
+															key={item.label}
+															href={item.href}
+															menuItems={item.menuItems}
+														>
 															{item.label}
 														</NavLink>
 													))}
@@ -195,7 +231,7 @@ export const Hero = () => {
 									</Dialog.Header>
 									<Dialog.Body>
 										<Button
-										    w="100%"
+											w="100%"
 											bg="summit-secondary"
 											color="white"
 											size="lg"
@@ -246,9 +282,54 @@ export const Hero = () => {
 interface NavLinkProps {
 	href: string;
 	children: React.ReactNode;
+	menuItems?: { label: string; href: string }[];
 }
 
-export const NavLink = ({ href, children }: NavLinkProps) => {
+export const NavLink = ({ href, children, menuItems }: NavLinkProps) => {
+	if (menuItems) {
+		return (
+			<Menu.Root>
+				<Menu.Trigger>
+					<MotionButton
+						variant="ghost"
+						fontFamily="var(--font-inter)"
+						color="primary"
+						_hover={{ color: "accent" }}
+						whileHover={{ scale: 1.05 }}
+						transition={{ duration: 0.2 }}
+					>
+						{" "}
+						{children}
+					</MotionButton>
+				</Menu.Trigger>
+				<Portal>
+					<Menu.Positioner>
+						<Menu.Content bg="gray.800" borderColor="gray.700">
+							{menuItems.map((item) => (
+								<Menu.Item key={item.label} value={item.label}>
+									<Link href={href}>
+										<MotionButton
+											as="a"
+											variant="ghost"
+											fontFamily="var(--font-inter)"
+											color="primary"
+											_hover={{ color: "accent" }}
+											whileHover={{ scale: 1.05 }}
+											whileTap={{ scale: 0.97 }}
+											transition={{ duration: 0.2 }}
+										>
+											{item.label}
+										</MotionButton>
+									</Link>
+								</Menu.Item>
+							))}
+						</Menu.Content>
+					</Menu.Positioner>
+				</Portal>
+			</Menu.Root>
+		);
+	}
+
 	return (
 		<Link href={href}>
 			<MotionButton
