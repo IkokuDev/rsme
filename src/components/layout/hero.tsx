@@ -19,7 +19,6 @@ import {
 	Link,
 	Center,
 	Menu,
-	MenuItem,
 } from "@chakra-ui/react";
 import { Menu01Icon } from "hugeicons-react";
 import { motion } from "framer-motion";
