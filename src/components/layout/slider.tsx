@@ -16,7 +16,7 @@ const SimpleSlider = () => {
 		speed: 500,
 		slidesToShow: 4,
 		slidesToScroll: 1,
-		adaptiveHeight: true,
+		// adaptiveHeight: tru
 		arrows: false,
 		responsive: [
 			{
@@ -39,7 +39,6 @@ const SimpleSlider = () => {
 			image: "/images/avatar.jpg",
 			name: "John Doe",
 			topic: "AI-Driven Growth for SMEs",
-			text: "John is a tech innovator and CEO at NovaTech, helping small businesses scale through accessible AI tools.",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/john-doe",
 		},
@@ -47,7 +46,6 @@ const SimpleSlider = () => {
 			image: "/images/avatar-1.jpg",
 			name: "Fatima Ali",
 			topic: "Social Media as a Sales Engine",
-			text: "As CMO of BrightReach, Fatima crafts data-driven strategies that convert content into revenue.",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/fatima-ali",
 		},
@@ -55,7 +53,6 @@ const SimpleSlider = () => {
 			image: "/images/avatar-2.jpg",
 			name: "Marcus Ng",
 			topic: "Bootstrap to Breakthrough: Funding Tactics",
-			text: "Founder of SeedWise Capital, Marcus mentors early-stage entrepreneurs on securing smart investments.",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/marcus-ng",
 		},
@@ -63,7 +60,6 @@ const SimpleSlider = () => {
 			image: "/images/avatar-3.jpg",
 			name: "Lena Hartmann",
 			topic: "Design Thinking for Product Innovation",
-			text: "Lena, Product Lead at Formix, specializes in user-centered design and scalable MVPs.",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/lena-hartmann",
 		},
@@ -71,7 +67,6 @@ const SimpleSlider = () => {
 			image: "/images/avatar-4.jpg",
 			name: "James Bello",
 			topic: "The Future of Remote Teams",
-			text: "As COO of TeamSphere, James empowers SMEs with systems for managing global remote workforces.",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/james-bello",
 		},
@@ -79,7 +74,6 @@ const SimpleSlider = () => {
 			image: "/images/avatar.jpg",
 			name: "Naomi Santos",
 			topic: "Digital Marketing on a Budget",
-			text: "Naomi is a marketing strategist at LocalEdge, focusing on high-impact campaigns for small budgets.",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/naomi-santos",
 		},
@@ -100,77 +94,80 @@ const SimpleSlider = () => {
 				</Heading>
 				<Slider {...settings}>
 					{slides.map((slide) => (
-						<Box key={slide.name} position="relative">
+						<Box
+							key={slide.name}
+							bg="rgba(0, 0, 0, 0.6)"
+							position="relative"
+							pb="80px"
+							minH="500px"
+						>
 							<Image
 								src={slide.image}
 								alt={slide.name}
 								borderRadius="xl"
 								objectFit="cover"
 								w="full"
-								h={{ base: "300px", md: "400px" }}
+								h="300px"
 							/>
 							<MotionBox
 								initial={{ opacity: 0, y: 30 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.6, ease: "easeOut" }}
-								position="absolute"
-								top="0"
-								left="0"
-								w="full"
-								h="full"
-								bg="rgba(0, 0, 0, 0.6)"
 								color="fg.light"
 								display="flex"
 								flexDirection="column"
 								alignItems="center"
-								justifyContent="center"
+								justifyContent="space-between"
 								textAlign="center"
 								px={6}
+								h="100%"
 							>
-								<Heading
-									as="h3"
-									fontSize={{ base: "2xl", md: "3xl" }}
-									mb={4}
-									color="fg.light"
+								<Box>
+									<Heading
+										as="h3"
+										fontSize="2xl"
+										my={2}
+										mb={4}
+										color="fg.light"
+									>
+										{slide.name}
+									</Heading>
+									<Text
+										fontSize="md"
+										mb={6}
+										color="fg.evenDarkerSoft"
+										maxW="sm"
+									>
+										{slide.topic}
+									</Text>
+								</Box>
+								<Box
+									position="absolute"
+									bottom="20px"
+									left="50%"
+									transform="translateX(-50%)"
 								>
-									{slide.name}
-								</Heading>
-								<Text
-									fontSize={{ base: "md", md: "lg" }}
-									mb={6}
-									color="fg.evenDarkerSoft"
-									maxW="sm"
-								>
-									{slide.topic}
-								</Text>
-								<Text
-									fontSize={{ base: "sm", md: "md" }}
-									mb={6}
-									color="fg.darkerSoft"
-									maxW="md"
-								>
-									{slide.text}
-								</Text>
-								<MotionButton
-									as="a"
-									href={slide.buttonLink}
-									target="_blank"
-									rel="noopener noreferrer"
-									bg="secondary"
-									color="fg.light"
-									whileHover={{ scale: 1.05 }}
-									whileTap={{ scale: 0.95 }}
-									transition={{ duration: 0.2 }}
-									_hover={{ bg: "accent" }}
-									size="lg"
-									fontWeight="medium"
-									borderRadius="full"
-									px={8}
-									// eslint-disable-next-line @typescript-eslint/no-explicit-any
-									{...({} as any)}
-								>
-									{slide.buttonText}
-								</MotionButton>
+									<MotionButton
+										as="a"
+										href={slide.buttonLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										bg="secondary"
+										color="fg.light"
+										whileHover={{ scale: 1.05 }}
+										whileTap={{ scale: 0.95 }}
+										transition={{ duration: 0.2 }}
+										_hover={{ bg: "accent" }}
+										size="lg"
+										fontWeight="medium"
+										borderRadius="full"
+										px={8}
+										// eslint-disable-next-line @typescript-eslint/no-explicit-any
+										{...({} as any)}
+									>
+										{slide.buttonText}
+									</MotionButton>
+								</Box>
 							</MotionBox>
 						</Box>
 					))}
