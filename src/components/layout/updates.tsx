@@ -107,7 +107,7 @@ export const Updates = () => {
 								size="lg"
 								w={{ base: "100%", md: "auto" }}
 								minW="200px"
-								bg="accent"
+								bg="summit-secondary"
 								color="white"
 								_hover={{ bg: "accent.hover" }}
 							>

@@ -36,7 +36,7 @@ export const Countdown = ({ targetDate }: CountdownProps) => {
     <VStack gap={1}>
       <MotionBox
         p={4}
-        bg="accent"
+        bg="summit-secondary"
         color="white"
         rounded="2xl"
         minW="70px"

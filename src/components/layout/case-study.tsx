@@ -28,8 +28,8 @@ export const CaseStudy = () => {
 			<Container maxW="110rem" px={{ base: 8 }}>
 				<Heading
 					size={{ base: "lg", sm: "2xl", md: "4xl" }}
-					mb={{ base: 4, md: 6 }}
-					color="primary"
+					mb="10"
+					color="white"
 					lineHeight="shorter"
 					fontWeight="bold"
 					textAlign="center"
@@ -71,7 +71,7 @@ export const CaseStudy = () => {
 							the summit offered GrowTech targeted exposure, meaningful
 							partnerships, and global credibility.
 						</Text>
-						<Text fontSize="lg" fontWeight="semibold" color="summit-accent">
+						<Text fontSize="lg" fontWeight="semibold" color="summit-secondary">
 							Ready to scale your SME? Join the leaders shaping tomorrow at SME
 							Summit 2026.
 						</Text>

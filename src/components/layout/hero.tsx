@@ -71,11 +71,11 @@ export const Hero = () => {
 									width="100px"
 									objectFit="cover"
 								/>
-								<Center flexDir="column" color="primary">
-									<Text fontFamily="var(--font-inter)" fontSize="smaller" fontWeight="600">
+								<Center flexDir="column" color="primary" fontSize="0.7rem" fontWeight="600">
+									<Text fontFamily="var(--font-inter)">
 										28 - 29 May 2025{" "}
 									</Text>
-									<Text fontFamily="var(--font-inter)" fontSize="smaller" fontWeight="600">
+									<Text fontFamily="var(--font-inter)">
 										SME Summit 2025
 									</Text>
 								</Center>
@@ -89,7 +89,7 @@ export const Hero = () => {
 									</NavLink>
 								))}
 								<MotionButton
-									bg="accent"
+									bg="summit-secondary"
 									color="white"
 									fontFamily="var(--font-inter)"
 									_hover={{ bg: "accent.hover" }}
@@ -100,7 +100,7 @@ export const Hero = () => {
 									Who Should Attend
 								</MotionButton>
 								<MotionButton
-									bg="accent"
+									bg="summit-secondary"
 									color="white"
 									fontFamily="var(--font-inter)"
 									_hover={{ bg: "accent.hover" }}
@@ -177,6 +177,7 @@ export const Hero = () => {
 
 					<Dialog.Root
 						open={drawerOpen}
+						size="xs"
 						placement="center"
 						motionPreset="slide-in-bottom"
 						onOpenChange={(details) => {
@@ -194,8 +195,8 @@ export const Hero = () => {
 									</Dialog.Header>
 									<Dialog.Body>
 										<Button
-											width="100%"
-											bg="accent"
+										    w="100%"
+											bg="summit-secondary"
 											color="white"
 											size="lg"
 											_hover={{ bg: "accent.hover" }}

@@ -23,7 +23,7 @@ const Footer = () => {
         >
           {/* Brand & Description */}
           <Stack gap={4} maxW="300px">
-            <Text fontSize="xl" fontWeight="bold" color="#8B1A2F">
+            <Text fontSize="xl" fontWeight="bold" color="summit-secondary">
               Summit Co.
             </Text>
             <Text fontSize="sm">
@@ -35,7 +35,7 @@ const Footer = () => {
                 aria-label="Twitter"
                 variant="ghost"
                 color="#B8B8B8"
-                _hover={{ color: "#A54B56" }}
+                _hover={{ color: "summit-secondary" }}
               >
                 <TwitterIcon />
               </IconButton>
@@ -43,7 +43,7 @@ const Footer = () => {
                 aria-label="LinkedIn"
                 variant="ghost"
                 color="#B8B8B8"
-                _hover={{ color: "#A54B56" }}
+                _hover={{ color: "summit-secondary" }}
               >
                 <Linkedin01Icon />
               </IconButton>
@@ -51,7 +51,7 @@ const Footer = () => {
                 aria-label="Instagram"
                 variant="ghost"
                 color="#B8B8B8"
-                _hover={{ color: "#A54B56" }}
+                _hover={{ color: "summit-secondary" }}
               >
                 <InstagramIcon />
               </IconButton>
@@ -61,7 +61,7 @@ const Footer = () => {
           {/* Navigation Links */}
           <HStack gap={16} align="flex-start">
             <Stack gap={3}>
-              <Text fontWeight="semibold" color="#A54B56">
+              <Text fontWeight="semibold" color="summit-secondary">
                 Event
               </Text>
               <Link href="#" _hover={{ color: "accent" }}>
@@ -76,7 +76,7 @@ const Footer = () => {
             </Stack>
 
             <Stack gap={3}>
-              <Text fontWeight="semibold" color="#A54B56">
+              <Text fontWeight="semibold" color="summit-secondary">
                 Company
               </Text>
               <Link href="#" _hover={{ color: "accent" }}>
@@ -91,7 +91,7 @@ const Footer = () => {
             </Stack>
 
             <Stack gap={3}>
-              <Text fontWeight="semibold" color="#A54B56">
+              <Text fontWeight="semibold" color="summit-secondary">
                 Legal
               </Text>
               <Link href="#" _hover={{ color: "accent" }}>

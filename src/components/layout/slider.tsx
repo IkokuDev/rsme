@@ -88,7 +88,7 @@ const SimpleSlider = () => {
 					lineHeight="short"
 					mb={10}
 					textAlign="center"
-					color="primary"
+					color="white"
 				>
 					Speakers
 				</Heading>
@@ -163,6 +163,7 @@ const SimpleSlider = () => {
 										borderRadius="full"
 										px={8}
 										// eslint-disable-next-line @typescript-eslint/no-explicit-any
+										// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 										{...({} as any)}
 									>
 										{slide.buttonText}

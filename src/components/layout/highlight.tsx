@@ -81,7 +81,7 @@ export const Highlight = () => {
             <Heading
               size={headingSize}
               mb={{ base: 2, sm: 3, md: 4 }}
-              color="primary"
+              color="white"
               lineHeight="shorter"
               fontWeight="bold"
             >

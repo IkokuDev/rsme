@@ -28,7 +28,7 @@ export default function Home() {
         zIndex="overlay"
       >
         <Button
-          bg="accent"
+          bg="summit-secondary"
           color="white"
           size="lg"
           px={8}
