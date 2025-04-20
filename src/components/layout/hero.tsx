@@ -21,23 +21,44 @@ import {
 	Menu,
 } from "@chakra-ui/react";
 import { Menu01Icon } from "hugeicons-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Countdown } from "../countdown";
 
 const MotionBox = motion(Box);
 const MotionButton = motion(Button);
 
+const menuVariants = {
+	hidden: { opacity: 0, y: -5 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.2,
+			staggerChildren: 0.1,
+		},
+	},
+};
+
+const itemVariants = {
+	hidden: { opacity: 0, x: -10 },
+	visible: {
+		opacity: 1,
+		x: 0,
+		transition: { duration: 0.2 },
+	},
+};
+
 export const Hero = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [drawerOpen, drawerSetOpen] = useState(false);
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			drawerSetOpen(true);
-		}, 35000);
+	//   useEffect(() => {
+	//     const interval = setInterval(() => {
+	//       drawerSetOpen(true);
+	//     }, 35000);
 
-		return () => clearInterval(interval);
-	}, []);
+	//     return () => clearInterval(interval);
+	//   }, []);
 
 	const navItems = [
 		{
@@ -148,7 +169,7 @@ export const Hero = () => {
 								open={isOpen}
 								placement="start"
 								size="xs"
-								onOpenChange={(details) => drawerSetOpen(details.open)}
+								onOpenChange={(details) => setIsOpen(details.open)}
 							>
 								<Drawer.Trigger asChild>
 									<IconButton
@@ -160,7 +181,7 @@ export const Hero = () => {
 									/>
 								</Drawer.Trigger>
 								<Portal>
-									<Drawer.Backdrop />
+									<Drawer.Backdrop onClick={() => setIsOpen(false)} />
 									<Drawer.Positioner>
 										<Drawer.Content>
 											<Drawer.Body>
@@ -168,13 +189,36 @@ export const Hero = () => {
 													align="start"
 													fontFamily="var(--font-raleway)"
 													fontWeight="500"
-													gap={2}
+													gap={6}
 												>
+													<Flex gap="0.5rem">
+														<Image
+															src="/images/logo/logo.png"
+															alt="Summit SME Logo"
+															height="60px"
+															width="100px"
+															objectFit="cover"
+														/>
+														<Center
+															flexDir="column"
+															color="primary"
+															fontSize="0.7rem"
+															fontWeight="600"
+														>
+															<Text fontFamily="var(--font-inter)">
+																28 - 29 May 2025{" "}
+															</Text>
+															<Text fontFamily="var(--font-inter)">
+																SME Summit 2025
+															</Text>
+														</Center>
+													</Flex>
 													{navItems.map((item) => (
 														<NavLink
 															key={item.label}
 															href={item.href}
 															menuItems={item.menuItems}
+															isMobile={true}
 														>
 															{item.label}
 														</NavLink>
@@ -282,12 +326,56 @@ interface NavLinkProps {
 	href: string;
 	children: React.ReactNode;
 	menuItems?: { label: string; href: string }[];
+	isMobile?: boolean;
 }
 
-export const NavLink = ({ href, children, menuItems }: NavLinkProps) => {
+export const NavLink = ({
+	href,
+	children,
+	menuItems,
+	isMobile,
+}: NavLinkProps) => {
+	const [isOpen, setIsOpen] = useState(false);
+
+	if (menuItems && isMobile) {
+		return (
+			<VStack align="start" gap={2} pl={4}>
+				<Text
+					color="primary"
+					fontWeight="bold"
+					cursor="pointer"
+					onClick={() => setIsOpen(!isOpen)}
+				>
+					{children}
+				</Text>
+				<AnimatePresence>
+					{isOpen && (
+						<MotionBox
+							initial="hidden"
+							animate="visible"
+							exit="hidden"
+							variants={menuVariants}
+							style={{ overflow: "hidden" }}
+						>
+							{menuItems.map((item) => (
+								<MotionBox key={item.label} variants={itemVariants}>
+									<Link href={item.href}>
+										<Text color="primary" fontSize="sm" pl={4} py={2}>
+											{item.label}
+										</Text>
+									</Link>
+								</MotionBox>
+							))}
+						</MotionBox>
+					)}
+				</AnimatePresence>
+			</VStack>
+		);
+	}
+
 	if (menuItems) {
 		return (
-			<Menu.Root>
+			<Menu.Root onOpenChange={() => setIsOpen(!isOpen)}>
 				<Menu.Trigger>
 					<MotionButton
 						variant="ghost"
@@ -297,31 +385,37 @@ export const NavLink = ({ href, children, menuItems }: NavLinkProps) => {
 						whileHover={{ scale: 1.05 }}
 						transition={{ duration: 0.2 }}
 					>
-						{" "}
 						{children}
 					</MotionButton>
 				</Menu.Trigger>
 				<Portal>
 					<Menu.Positioner>
 						<Menu.Content bg="gray.800" borderColor="gray.700">
-							{menuItems.map((item) => (
-								<Menu.Item key={item.label} value={item.label}>
-									<Link href={href}>
-										<MotionButton
-											as="a"
-											variant="ghost"
-											fontFamily="var(--font-inter)"
-											color="primary"
-											_hover={{ color: "accent" }}
-											whileHover={{ scale: 1.05 }}
-											whileTap={{ scale: 0.97 }}
-											transition={{ duration: 0.2 }}
-										>
-											{item.label}
-										</MotionButton>
-									</Link>
-								</Menu.Item>
-							))}
+							<AnimatePresence>
+								<MotionBox
+									initial="hidden"
+									animate="visible"
+									exit="hidden"
+									variants={menuVariants}
+								>
+									{menuItems.map((item) => (
+										<MotionBox key={item.label} variants={itemVariants}>
+											<Menu.Item value={item.label}>
+												<Link href={item.href}>
+													<Text
+														color="primary"
+														px={4}
+														py={2}
+														_hover={{ color: "accent" }}
+													>
+														{item.label}
+													</Text>
+												</Link>
+											</Menu.Item>
+										</MotionBox>
+									))}
+								</MotionBox>
+							</AnimatePresence>
 						</Menu.Content>
 					</Menu.Positioner>
 				</Portal>
