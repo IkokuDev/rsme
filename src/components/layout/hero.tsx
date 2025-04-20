@@ -30,13 +30,13 @@ export const Hero = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [drawerOpen, drawerSetOpen] = useState(false);
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			drawerSetOpen(true);
-		}, 35000); // 35 seconds
+	// useEffect(() => {
+	// 	const interval = setInterval(() => {
+	// 		drawerSetOpen(true);
+	// 	}, 35000); 
 
-		return () => clearInterval(interval);
-	}, []);
+	// 	return () => clearInterval(interval);
+	// }, []);
 
 	const navItems = [
 		{ label: "About", href: "/#about" },
@@ -72,10 +72,10 @@ export const Hero = () => {
 									objectFit="cover"
 								/>
 								<Center flexDir="column" color="primary">
-									<Text fontFamily="var(--font-inter)" fontSize="sm">
+									<Text fontFamily="var(--font-inter)" fontSize="smaller" fontWeight="600">
 										28 - 29 May 2025{" "}
 									</Text>
-									<Text fontFamily="var(--font-inter)" fontSize="sm">
+									<Text fontFamily="var(--font-inter)" fontSize="smaller" fontWeight="600">
 										SME Summit 2025
 									</Text>
 								</Center>

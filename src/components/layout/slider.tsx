@@ -88,7 +88,7 @@ const SimpleSlider = () => {
 					lineHeight="short"
 					mb={10}
 					textAlign="center"
-					color="fg.default"
+					color="primary"
 				>
 					Speakers
 				</Heading>

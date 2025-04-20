@@ -37,6 +37,8 @@ export const Updates = () => {
 						bgGradient="linear-gradient(to right, #8B1A2F, #1f0010)"
 						display="flex"
 						alignItems="center"
+						border="1px solid"
+						borderColor="border"
 						justifyContent="center"
 						borderRadius="lg"
 						p={8}
@@ -55,6 +57,9 @@ export const Updates = () => {
 						flex={{ base: 1, md: 2 }}
 						onSubmit={handleSubmit}
 						display="flex"
+						borderRadius="lg"
+						border="1px solid"
+						borderColor="border"
 						alignItems="center"
 						p={{ base: 4, md: 8 }}
 					>

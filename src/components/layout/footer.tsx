@@ -104,33 +104,6 @@ const Footer = () => {
               </Link>
             </Stack>
           </HStack>
-
-          {/* Newsletter Signup */}
-          <Stack gap={4} maxW="sm" w="full">
-            <Text fontWeight="semibold" color="#A54B56">
-              Subscribe to our newsletter
-            </Text>
-            <Text fontSize="sm">
-              Get the latest updates on speakers, topics, and exclusive content.
-            </Text>
-            <HStack as="form" gap={2}>
-              <Input
-                placeholder="Enter your email"
-                size="md"
-                // focusBorderColor="#A54B56"
-                _placeholder={{ color: "#B8B8B8" }}
-                borderColor="#B8B8B8"
-              />
-              <Button
-                bg="#8B1A2F"
-                color="white"
-                _hover={{ bg: "#A54B56" }}
-                size="lg"
-              >
-                Subscribe
-              </Button>
-            </HStack>
-          </Stack>
         </Flex>
 
         <Separator my={10} borderColor="#B8B8B8" opacity={0.2} />

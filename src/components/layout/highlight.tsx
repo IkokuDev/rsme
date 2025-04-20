@@ -81,7 +81,7 @@ export const Highlight = () => {
             <Heading
               size={headingSize}
               mb={{ base: 2, sm: 3, md: 4 }}
-              color="fg.default"
+              color="primary"
               lineHeight="shorter"
               fontWeight="bold"
             >
@@ -108,6 +108,7 @@ export const Highlight = () => {
           >
             {features.map((feature, index) => (
               <Box
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                 key={index}
                 p={cardPadding}
                 bg="summit-text"
@@ -140,7 +141,7 @@ export const Highlight = () => {
                   />
                   <Heading
                     size={{ base: "sm", sm: "md" }}
-                    color="summit-primary"
+                    color="white"
                     lineHeight="shorter"
                     fontWeight="semibold"
                   >
