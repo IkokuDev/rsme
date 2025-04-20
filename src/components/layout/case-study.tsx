@@ -32,9 +32,9 @@ export const CaseStudy = () => {
 					color="primary"
 					lineHeight="shorter"
 					fontWeight="bold"
-          textAlign="center"
+					textAlign="center"
 				>
-					What's Different
+					What&apos;s Different
 				</Heading>
 
 				<Stack

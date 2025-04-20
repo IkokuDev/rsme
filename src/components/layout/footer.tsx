@@ -1,12 +1,10 @@
 import {
   Box,
-  Button,
   Container,
   Separator,
   Flex,
   HStack,
   IconButton,
-  Input,
   Link,
   Stack,
   Text,
