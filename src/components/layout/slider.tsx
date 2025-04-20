@@ -4,7 +4,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Box, Image, Heading, Text, Button, Container } from "@chakra-ui/react";
+import { Box, Image, Heading, Text, Button, Container, Link } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
@@ -147,11 +147,12 @@ const SimpleSlider = () => {
 									left="50%"
 									transform="translateX(-50%)"
 								>
-									<MotionButton
-										as="a"
+									<Link
 										href={slide.buttonLink}
 										target="_blank"
 										rel="noopener noreferrer"
+									>
+									<MotionButton
 										bg="secondary"
 										color="fg.light"
 										whileHover={{ scale: 1.05 }}
@@ -162,12 +163,10 @@ const SimpleSlider = () => {
 										fontWeight="medium"
 										borderRadius="full"
 										px={8}
-										// eslint-disable-next-line @typescript-eslint/no-explicit-any
-										// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-										{...({} as any)}
 									>
 										{slide.buttonText}
 									</MotionButton>
+									</Link>
 								</Box>
 							</MotionBox>
 						</Box>
