@@ -52,13 +52,13 @@ export const Hero = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [drawerOpen, drawerSetOpen] = useState(false);
 
-	//   useEffect(() => {
-	//     const interval = setInterval(() => {
-	//       drawerSetOpen(true);
-	//     }, 35000);
+	  useEffect(() => {
+	    const interval = setInterval(() => {
+	      drawerSetOpen(true);
+	    }, 35000);
 
-	//     return () => clearInterval(interval);
-	//   }, []);
+	    return () => clearInterval(interval);
+	  }, []);
 
 	const navItems = [
 		{
