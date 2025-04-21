@@ -52,13 +52,13 @@ export const Hero = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [drawerOpen, drawerSetOpen] = useState(false);
 
-	  useEffect(() => {
-	    const interval = setInterval(() => {
-	      drawerSetOpen(true);
-	    }, 35000);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			drawerSetOpen(true);
+		}, 35000);
 
-	    return () => clearInterval(interval);
-	  }, []);
+		return () => clearInterval(interval);
+	}, []);
 
 	const navItems = [
 		{
@@ -191,28 +191,6 @@ export const Hero = () => {
 													fontWeight="500"
 													gap={6}
 												>
-													<Flex gap="0.5rem">
-														<Image
-															src="/images/logo/logo.png"
-															alt="Summit SME Logo"
-															height="60px"
-															width="100px"
-															objectFit="cover"
-														/>
-														<Center
-															flexDir="column"
-															color="primary"
-															fontSize="0.7rem"
-															fontWeight="600"
-														>
-															<Text fontFamily="var(--font-inter)">
-																28 - 29 May 2025{" "}
-															</Text>
-															<Text fontFamily="var(--font-inter)">
-																SME Summit 2025
-															</Text>
-														</Center>
-													</Flex>
 													{navItems.map((item) => (
 														<NavLink
 															key={item.label}
