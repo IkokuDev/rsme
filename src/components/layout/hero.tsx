@@ -112,7 +112,7 @@ export const Hero = () => {
 						<Flex align="center" justify="space-between">
 							<Flex gap="0.5rem">
 								<Image
-									src="/images/logo/logo.png"
+									src="/images/logo/logo-v2.jpg"
 									alt="Summit SME Logo"
 									height="60px"
 									width="100px"
@@ -121,7 +121,7 @@ export const Hero = () => {
 								<Center
 									flexDir="column"
 									color="primary"
-									fontSize="0.7rem"
+									fontSize="1rem"
 									fontWeight="600"
 								>
 									<Text fontFamily="var(--font-inter)">28 - 29 May 2025 </Text>
