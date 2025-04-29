@@ -62,12 +62,13 @@ export const Hero = () => {
 
 	const navItems = [
 		{
-			label: "About",
+			label: "Register",
 			href: "/#about",
 			menuItems: [
-				{ label: "Our Story", href: "/about/story" },
-				{ label: "Team", href: "/about/team" },
-				{ label: "Vision", href: "/about/vision" },
+				{ label: "About Us", href: "/about-us" },
+				{ label: "Ticketing Options and Pricing", href: "/ticketing" },
+				{ label: "How to Register", href: "/about/vision" },
+				{ label: "Additional Information & Support", href: "/about/vision" },
 			],
 		},
 		{
