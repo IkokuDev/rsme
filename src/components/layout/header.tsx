@@ -22,7 +22,7 @@ export const Header = () => {
     >
       <Flex align="center">
         <Image
-          src="logo.jpg"
+          src="logo-v2.png"
           alt="Summit SME Logo"
           boxSize="100px"
           objectFit="cover"

@@ -88,6 +88,27 @@ const tiers = [
 const MembershipTiers = () => {
 	return (
 		<Box py={20}>
+			<Box textAlign="center" mb={16}>
+				<Heading
+					as="h2"
+					fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+					fontWeight="bold"
+					color="white"
+					mb={4}
+				>
+					Our Ticketing Tiers
+				</Heading>
+				<Text
+					fontSize={{ base: "md", md: "lg" }}
+					color="gray.400"
+					maxW="2xl"
+					mx="auto"
+				>
+					Tailored to meet the varied needs of our diverse audience, each ticket
+					offers a unique set of benefits.
+				</Text>
+			</Box>
+
 			<SimpleGrid
 				columns={{ base: 1, lg: 4 }}
 				gap={10}
@@ -140,14 +161,9 @@ const MembershipTiers = () => {
 										alignItems="start"
 										gap={2}
 									>
-										{/* <ListIcon
-											as={CheckCircleIcon}
-											color={tier.buttonColor}
-											mt={1}
-										/> */}
-                    <Box flexShrink={0} mt={1}>
-										<CheckmarkCircle01Icon size={20} />
-                    </Box>
+										<Box flexShrink={0} mt={1}>
+											<CheckmarkCircle01Icon size={20} />
+										</Box>
 										<Text>{feature}</Text>
 									</ListItem>
 								))}

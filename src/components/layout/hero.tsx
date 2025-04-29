@@ -113,7 +113,7 @@ export const Hero = () => {
 						<Flex align="center" justify="space-between">
 							<Flex gap="0.5rem">
 								<Image
-									src="/images/logo/logo-v2.jpg"
+									src="/images/logo-v2.png"
 									alt="Summit SME Logo"
 									height="60px"
 									width="100px"

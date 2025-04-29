@@ -8,13 +8,15 @@ import Footer from "@/components/layout/footer";
 import MembershipTiers from "@/components/layout/membership-tiers";
 import { Updates } from "@/components/layout/updates";
 import { UserAdd01Icon } from "hugeicons-react";
+import DayOne from "@/components/layout/day-one";
 
 export default function Home() {
 	return (
-		<Box>
+		<Box css={{ "&::-webkit-scrollbar": { display: "none" } }}>
 			<Hero />
 			<SimpleSlider />
 			<Highlight />
+			<DayOne />
 			<MembershipTiers />
 			<CaseStudy />
 			<Updates />
@@ -32,7 +34,7 @@ export default function Home() {
 					bg="summit-secondary"
 					color="white"
 					size="lg"
-          gap={2}
+					gap={2}
 					fontSize="small"
 					px={4}
 					_hover={{ bg: "accent.hover" }}

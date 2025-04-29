@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 	description:
 		"Join the world's leading innovators for three days of groundbreaking insights and technological advancement.",
     icons: {
-      icon: '/images/logo/logo.png'
+      icon: '/images/logo-v2.png'
     },
 };
 
