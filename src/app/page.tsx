@@ -11,6 +11,7 @@ import { UserAdd01Icon } from "hugeicons-react";
 import DayOne from "@/components/layout/day-one";
 import AboutUs from "@/components/layout/about-us";
 import Register from "@/components/layout/register";
+import Partnership from "@/components/layout/partnership";
 
 export default function Home() {
 	return (
@@ -23,6 +24,9 @@ export default function Home() {
 			</Box>
 			<Box id="pricing">
 				<MembershipTiers />
+			</Box>
+			<Box id="partnership">
+				<Partnership />
 			</Box>
 			<Box id="register">
 				<Register />
