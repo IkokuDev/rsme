@@ -63,21 +63,21 @@ export const Hero = () => {
 	const navItems = [
 		{
 			label: "Register",
-			href: "/#about",
+			href: "#pricing", // Update these IDs to match your section IDs
 			menuItems: [
-				{ label: "About Us", href: "/about-us" },
-				{ label: "Ticketing Options and Pricing", href: "/ticketing" },
-				{ label: "How to Register", href: "/about/vision" },
-				{ label: "Additional Information & Support", href: "/about/vision" },
+				{ label: "About Us", href: "#about" },
+				{ label: "Ticketing Options", href: "#pricing" },
+				{ label: "How to Register", href: "#register" },
+				{ label: "Additional Information", href: "#info" },
 			],
 		},
 		{
 			label: "Schedule",
-			href: "/#schedule",
+			href: "#schedule",
 			menuItems: [
-				{ label: "Day 1", href: "/schedule/day-1" },
-				{ label: "Day 2", href: "/schedule/day-2" },
-				{ label: "Workshops", href: "/schedule/workshops" },
+				{ label: "Day 1", href: "#day1" },
+				{ label: "Day 2", href: "#day2" },
+				{ label: "Day 3", href: "#day3" },
 			],
 		},
 		{
@@ -316,6 +316,18 @@ export const NavLink = ({
 }: NavLinkProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
+	const handleScroll = (targetHref: string) => {
+		const targetId = targetHref.replace("#", "");
+		const element = document.getElementById(targetId);
+		if (element) {
+			const yOffset = -80; // Adjust this value based on your header height
+			const y =
+				element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+			window.scrollTo({ top: y, behavior: "smooth" });
+		}
+		setIsOpen(false);
+	};
+
 	if (menuItems && isMobile) {
 		return (
 			<VStack align="start" gap={2} pl={4}>
@@ -334,15 +346,20 @@ export const NavLink = ({
 							animate="visible"
 							exit="hidden"
 							variants={menuVariants}
-							style={{ overflow: "hidden" }}
 						>
 							{menuItems.map((item) => (
 								<MotionBox key={item.label} variants={itemVariants}>
-									<Link href={item.href}>
-										<Text color="primary" fontSize="sm" pl={4} py={2}>
-											{item.label}
-										</Text>
-									</Link>
+									<Text
+										color="primary"
+										fontSize="sm"
+										pl={4}
+										py={2}
+										cursor="pointer"
+										onClick={() => handleScroll(item.href)}
+										_hover={{ color: "accent" }}
+									>
+										{item.label}
+									</Text>
 								</MotionBox>
 							))}
 						</MotionBox>
@@ -379,17 +396,19 @@ export const NavLink = ({
 								>
 									{menuItems.map((item) => (
 										<MotionBox key={item.label} variants={itemVariants}>
-											<Menu.Item value={item.label}>
-												<Link href={item.href}>
-													<Text
-														color="primary"
-														px={4}
-														py={2}
-														_hover={{ color: "accent" }}
-													>
-														{item.label}
-													</Text>
-												</Link>
+											<Menu.Item
+												value={item.label}
+												cursor="pointer"
+												onClick={() => handleScroll(item.href)}
+											>
+												<Text
+													color="primary"
+													px={4}
+													py={2}
+													_hover={{ color: "accent" }}
+												>
+													{item.label}
+												</Text>
 											</Menu.Item>
 										</MotionBox>
 									))}
@@ -403,9 +422,8 @@ export const NavLink = ({
 	}
 
 	return (
-		<Link href={href}>
+		<Box as="button" onClick={() => handleScroll(href)}>
 			<MotionButton
-				as="a"
 				variant="ghost"
 				fontFamily="var(--font-inter)"
 				color="primary"
@@ -416,6 +434,6 @@ export const NavLink = ({
 			>
 				{children}
 			</MotionButton>
-		</Link>
+		</Box>
 	);
 };

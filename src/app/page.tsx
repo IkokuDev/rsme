@@ -9,6 +9,8 @@ import MembershipTiers from "@/components/layout/membership-tiers";
 import { Updates } from "@/components/layout/updates";
 import { UserAdd01Icon } from "hugeicons-react";
 import DayOne from "@/components/layout/day-one";
+import AboutUs from "@/components/layout/about-us";
+import Register from "@/components/layout/register";
 
 export default function Home() {
 	return (
@@ -16,10 +18,20 @@ export default function Home() {
 			<Hero />
 			<SimpleSlider />
 			<Highlight />
-			<DayOne />
-			<MembershipTiers />
+			<Box id="schedule">
+				<DayOne />
+			</Box>
+			<Box id="pricing">
+				<MembershipTiers />
+			</Box>
+			<Box id="register">
+				<Register />
+			</Box>
 			<CaseStudy />
 			<Updates />
+			<Box id="about">
+				<AboutUs />
+			</Box>
 			<Footer />
 
 			{/* Fixed Button */}
