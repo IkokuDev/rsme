@@ -11,19 +11,16 @@ import {
 	Icon,
 	List,
 	ListItem,
-	useBreakpointValue,
 	Link,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import {
-	ArrowRight01Icon,
 	BrowserIcon,
 	Shield01Icon,
 	Tag01Icon,
 	Ticket01Icon,
 } from "hugeicons-react";
 
-const MotionBox = motion(Box);
 const MotionListItem = motion(ListItem);
 
 const registrationSteps = [
@@ -60,8 +57,6 @@ const registrationSteps = [
 ];
 
 const Register = () => {
-	const isMobile = useBreakpointValue({ base: true, md: false });
-
 	return (
 		<Box bg="gray.900" py={{ base: 10, md: 20 }}>
 			<Container maxW="7xl">

@@ -16,7 +16,6 @@ import {
 	Dialog,
 	VStack,
 	Portal,
-	Link,
 	Center,
 	Menu,
 } from "@chakra-ui/react";

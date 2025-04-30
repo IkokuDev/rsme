@@ -8,8 +8,7 @@ import {
 	List,
 	ListItem,
 } from "@chakra-ui/react";
-// import { CheckCircleIcon } from "@chakra-ui/icons";
-import { CheckListIcon, CheckmarkCircle01Icon } from "hugeicons-react";
+import { CheckmarkCircle01Icon } from "hugeicons-react";
 
 const tiers = [
 	{

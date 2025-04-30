@@ -11,7 +11,7 @@ import {
 	ListItem,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { CheckListIcon, CheckmarkCircle01Icon } from "hugeicons-react";
+import { CheckmarkCircle01Icon } from "hugeicons-react";
 
 const MotionBox = motion(Box);
 const MotionText = motion(Text);
@@ -89,7 +89,7 @@ const AboutUs = () => {
 								transition={{ delay: 0.2, duration: 0.5 }}
 								viewport={{ once: true }}
 							>
-								The Rebel SME Summit is not just an event—it's a national
+								The Rebel SME Summit is not just an event—it&apos;s a national
 								movement to redefine SME success in Nigeria. Here, founders
 								reject conventional models and adopt radical, guerrilla tactics
 								for real change.
