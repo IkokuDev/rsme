@@ -54,7 +54,7 @@ export const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       drawerSetOpen(true);
-    }, 35000);
+    }, 120000);
 
     return () => clearInterval(interval);
   }, []);
@@ -62,26 +62,21 @@ export const Hero = () => {
   const navItems = [
     {
       label: "Register",
-      href: "#pricing",
+      href: "",
       menuItems: [
-        { label: "About Us", href: "#about" },
-        { label: "Ticketing Options", href: "#pricing" },
-        { label: "How To Register", href: "#register" },
-        { label: "Additional Information", href: "#info" },
+        { label: "About Us", href: "/about" },
+        { label: "Ticket Options", href: "/pricing" },
+        { label: "How To Register", href: "/register" },
+        { label: "Additional Information & Support", href: "/info" },
       ],
     },
     {
-      label: "Schedule",
-      href: "#schedule",
-      menuItems: [
-        { label: "Day 1", href: "#day1" },
-        { label: "Day 2", href: "#day2" },
-        { label: "Day 3", href: "#day3" },
-      ],
+      label: "Event Agenda",
+      href: "/event-agenda",
     },
     {
-      label: "Become A Partner",
-      href: "/#speakers",
+      label: "Partner",
+      href: "/partner",
       menuItems: [
         {
           label: "Why Partner With The Rebel SME Summit",
@@ -91,6 +86,19 @@ export const Hero = () => {
         { label: "Ready To Sign Up", href: "/speakers/experts" },
       ],
     },
+  ];
+
+  const sponsorMenuItems = [
+    { label: "Sponsor Overview", href: "#benefits" },
+    { label: "Sponsor Benefits", href: "#sponsorship-tiers" },
+    { label: "Sign Up", href: "#contact" },
+  ];
+
+  const exhibitorMenuItems = [
+    { label: "Exhibition Overview", href: "#spaces" },
+    { label: "Exhibitor Opportunities", href: "#package" },
+    { label: "Exhibitor Guides & Resources", href: "#apply" },
+    { label: "FAQ", href: "#apply" },
   ];
 
   return (
@@ -127,7 +135,9 @@ export const Hero = () => {
                   fontSize="0.7rem"
                   fontWeight="600"
                 >
-                  <Text fontFamily="var(--font-inter)">28 - 29 May 2025 </Text>
+                  <Text fontFamily="var(--font-inter)">
+                    11 - 13 September 2025{" "}
+                  </Text>
                   <Text fontFamily="var(--font-inter)">SME Summit 2025</Text>
                 </Center>
               </Flex>
@@ -143,28 +153,101 @@ export const Hero = () => {
                     {item.label}
                   </NavLink>
                 ))}
-                <MotionButton
-                  bg="summit-secondary"
-                  color="white"
-                  fontFamily="var(--font-inter)"
-                  _hover={{ bg: "accent.hover" }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Who Should Attend
-                </MotionButton>
-                <MotionButton
-                  bg="summit-secondary"
-                  color="white"
-                  fontFamily="var(--font-inter)"
-                  _hover={{ bg: "accent.hover" }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Reasons To Attend
-                </MotionButton>
+                <Menu.Root>
+                  <Menu.Trigger>
+                    <MotionButton
+                      bg="summit-secondary"
+                      color="white"
+                      fontFamily="var(--font-inter)"
+                      _hover={{ bg: "accent.hover" }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Become A Sponsor
+                    </MotionButton>
+                  </Menu.Trigger>
+                  <Portal>
+                    <Menu.Positioner>
+                      <Menu.Content bg="gray.800" borderColor="gray.700">
+                        <AnimatePresence>
+                          <MotionBox
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                            variants={menuVariants}
+                          >
+                            {sponsorMenuItems.map((item) => (
+                              <MotionBox
+                                key={item.label}
+                                variants={itemVariants}
+                              >
+                                <Menu.Item value={item.label} cursor="pointer">
+                                  <Text
+                                    color="white"
+                                    px={4}
+                                    py={2}
+                                    _hover={{ color: "accent" }}
+                                  >
+                                    {item.label}
+                                  </Text>
+                                </Menu.Item>
+                              </MotionBox>
+                            ))}
+                          </MotionBox>
+                        </AnimatePresence>
+                      </Menu.Content>
+                    </Menu.Positioner>
+                  </Portal>
+                </Menu.Root>
+
+                <Menu.Root>
+                  <Menu.Trigger>
+                    <MotionButton
+                      bg="summit-secondary"
+                      color="white"
+                      fontFamily="var(--font-inter)"
+                      _hover={{ bg: "accent.hover" }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Reasons An Exhibitor
+                    </MotionButton>
+                  </Menu.Trigger>
+                  <Portal>
+                    <Menu.Positioner>
+                      <Menu.Content bg="gray.800" borderColor="gray.700">
+                        <AnimatePresence>
+                          <MotionBox
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                            variants={menuVariants}
+                          >
+                            {exhibitorMenuItems.map((item) => (
+                              <MotionBox
+                                key={item.label}
+                                variants={itemVariants}
+                              >
+                                <Menu.Item value={item.label} cursor="pointer">
+                                  <Text
+                                    color="white"
+                                    px={4}
+                                    py={2}
+                                    _hover={{ color: "accent" }}
+                                  >
+                                    {item.label}
+                                  </Text>
+                                </Menu.Item>
+                              </MotionBox>
+                            ))}
+                          </MotionBox>
+                        </AnimatePresence>
+                      </Menu.Content>
+                    </Menu.Positioner>
+                  </Portal>
+                </Menu.Root>
               </HStack>
 
               {/* Mobile Menu Toggle */}
@@ -208,8 +291,12 @@ export const Hero = () => {
                               fontSize="0.7rem"
                               fontWeight="600"
                             >
-                              <Text fontFamily="var(--font-inter)">28 - 29 May 2025 </Text>
-                              <Text fontFamily="var(--font-inter)">SME Summit 2025</Text>
+                              <Text fontFamily="var(--font-inter)">
+                                11 - 13 September 2025{" "}
+                              </Text>
+                              <Text fontFamily="var(--font-inter)">
+                                SME Summit 2025
+                              </Text>
                             </Center>
                           </Flex>
                           {navItems.map((item) => (
@@ -223,28 +310,101 @@ export const Hero = () => {
                               {item.label}
                             </NavLink>
                           ))}
-                          <MotionButton
-                            bg="accent"
-                            color="white"
-                            fontFamily="var(--font-inter)"
-                            _hover={{ bg: "accent.hover" }}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.97 }}
-                            transition={{ duration: 0.2 }}
+                        <Menu.Root>
+                  <Menu.Trigger>
+                    <MotionButton
+                      bg="summit-secondary"
+                      color="white"
+                      fontFamily="var(--font-inter)"
+                      _hover={{ bg: "accent.hover" }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Become A Sponsor
+                    </MotionButton>
+                  </Menu.Trigger>
+                  <Portal>
+                    <Menu.Positioner>
+                      <Menu.Content bg="gray.800" borderColor="gray.700">
+                        <AnimatePresence>
+                          <MotionBox
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                            variants={menuVariants}
                           >
-                            Who Should Attend
-                          </MotionButton>
-                          <MotionButton
-                            bg="accent"
-                            color="white"
-                            fontFamily="var(--font-inter)"
-                            _hover={{ bg: "accent.hover" }}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.97 }}
-                            transition={{ duration: 0.2 }}
+                            {sponsorMenuItems.map((item) => (
+                              <MotionBox
+                                key={item.label}
+                                variants={itemVariants}
+                              >
+                                <Menu.Item value={item.label} cursor="pointer">
+                                  <Text
+                                    color="white"
+                                    px={4}
+                                    py={2}
+                                    _hover={{ color: "accent" }}
+                                  >
+                                    {item.label}
+                                  </Text>
+                                </Menu.Item>
+                              </MotionBox>
+                            ))}
+                          </MotionBox>
+                        </AnimatePresence>
+                      </Menu.Content>
+                    </Menu.Positioner>
+                  </Portal>
+                </Menu.Root>
+
+                <Menu.Root>
+                  <Menu.Trigger>
+                    <MotionButton
+                      bg="summit-secondary"
+                      color="white"
+                      fontFamily="var(--font-inter)"
+                      _hover={{ bg: "accent.hover" }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      Reasons An Exhibitor
+                    </MotionButton>
+                  </Menu.Trigger>
+                  <Portal>
+                    <Menu.Positioner>
+                      <Menu.Content bg="gray.800" borderColor="gray.700">
+                        <AnimatePresence>
+                          <MotionBox
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                            variants={menuVariants}
                           >
-                            Reasons To Attend
-                          </MotionButton>
+                            {exhibitorMenuItems.map((item) => (
+                              <MotionBox
+                                key={item.label}
+                                variants={itemVariants}
+                              >
+                                <Menu.Item value={item.label} cursor="pointer">
+                                  <Text
+                                    color="white"
+                                    px={4}
+                                    py={2}
+                                    _hover={{ color: "accent" }}
+                                  >
+                                    {item.label}
+                                  </Text>
+                                </Menu.Item>
+                              </MotionBox>
+                            ))}
+                          </MotionBox>
+                        </AnimatePresence>
+                      </Menu.Content>
+                    </Menu.Positioner>
+                  </Portal>
+                </Menu.Root>
                         </VStack>
                       </Drawer.Body>
                     </Drawer.Content>
@@ -314,7 +474,7 @@ export const Hero = () => {
               immersive event focused on innovation, growth, and the future of
               small businesses.
             </Text>
-            <Countdown targetDate="2025-06-15T09:00:00" />
+            <Countdown targetDate="2025-09-11T00:00:00" />
           </Stack>
         </Flex>
       </Container>
@@ -344,7 +504,8 @@ export const NavLink = ({
     const element = document.getElementById(targetId);
     if (element) {
       const yOffset = -80;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
     setIsOpen(false);
