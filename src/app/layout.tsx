@@ -1,6 +1,7 @@
 import { Poppins, Inter } from "next/font/google";
 import { Provider } from "@/components/ui/provider";
 import type { Metadata } from "next";
+import { Framework } from "./framework";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -36,7 +37,11 @@ export default function RootLayout({
 			className={`${poppins.variable} ${inter.variable}`}
 		>
 			<body style={{ scrollBehavior: "smooth" }}>
-				<Provider>{children}</Provider>
+				<Provider>
+					<Framework>
+						{children}
+					</Framework>
+				</Provider>
 			</body>
 		</html>
 	);
