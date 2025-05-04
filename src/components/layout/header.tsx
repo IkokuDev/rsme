@@ -61,16 +61,16 @@ export const Header = () => {
 			],
 		},
 		{
-			label: "Event Agenda",
-			href: "/event-agenda",
-		},
-		{
 			label: "Partner",
 			href: "/partner",
 		},
 		{
-			label: "Media Partnership",
+			label: "Event Agenda",
 			href: "/event-agenda",
+		},
+		{
+			label: "Media Partnership",
+			href: "/media",
 		},
 		{
 			label: "Success Evangelist",
