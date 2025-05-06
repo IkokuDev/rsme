@@ -113,12 +113,13 @@ export const Header = () => {
 					align="center"
 					w="100%"
 					py={6}
+					gap="0.5rem"
 					px={{ base: 4 }}
 					pos="absolute"
 					zIndex={10}
 					justify="space-between"
 				>
-					<Flex gap="0.5rem">
+					<Flex gap="0.5rem" flex="1">
 						<Link href="/">
 							<Image
 								src="/images/logo-v2.png"
@@ -218,7 +219,7 @@ export const Header = () => {
 									whileTap={{ scale: 0.97 }}
 									transition={{ duration: 0.2 }}
 								>
-									Reasons An Exhibitor
+									Become An Exhibitor
 									<ArrowDown01Icon />
 								</MotionButton>
 							</Menu.Trigger>
@@ -402,7 +403,7 @@ export const Header = () => {
 														whileTap={{ scale: 0.97 }}
 														transition={{ duration: 0.2 }}
 													>
-														Reasons An Exhibitor
+														Become An Exhibitor
 														<ArrowDown01Icon />
 													</MotionButton>
 												</Menu.Trigger>
