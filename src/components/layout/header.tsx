@@ -314,7 +314,7 @@ export const Header = () => {
 														key={item.label}
 														href={item.href}
 														menuItems={item.menuItems}
-														// onClose={() => setIsOpen(false)}
+														onClose={() => setIsOpen(false)}
 													>
 														{item.label}
 													</NavLink>
