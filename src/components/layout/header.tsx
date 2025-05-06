@@ -141,300 +141,313 @@ export const Header = () => {
 					</Flex>
 
 					{/* Desktop Nav */}
-					<HStack gap={6}>
-						<Flex gap={6} display={{ base: "none", md: "flex" }}>
-							<Menu.Root>
-								<Menu.Trigger>
-									<MotionButton
-										bg="summit-secondary"
-										color="white"
-										fontFamily="var(--font-inter)"
-										_hover={{ bg: "accent.hover" }}
-										whileHover={{ scale: 1.05 }}
-										whileTap={{ scale: 0.97 }}
-										transition={{ duration: 0.2 }}
-									>
-										Become A Sponsor
-										<ArrowDown01Icon />
-									</MotionButton>
-								</Menu.Trigger>
-								<Portal>
-									<Menu.Positioner>
-										<Menu.Content bg="gray.800" borderColor="gray.700">
-											<AnimatePresence>
-												<MotionBox
-													initial="hidden"
-													animate="visible"
-													exit="hidden"
-													variants={menuVariants}
-												>
-													{sponsorMenuItems.map((item) => (
-														<MotionBox key={item.label} variants={itemVariants}>
-															<Menu.Item value={item.label} cursor="pointer">
-																<Text
-																	color="white"
-																	px={4}
-																	py={2}
-																	_hover={{ color: "accent" }}
-																>
-																	{item.label}
-																</Text>
-															</Menu.Item>
-														</MotionBox>
-													))}
-												</MotionBox>
-											</AnimatePresence>
-										</Menu.Content>
-									</Menu.Positioner>
-								</Portal>
-							</Menu.Root>
-
-							<Menu.Root>
-								<Menu.Trigger>
-									<MotionButton
-										bg="summit-secondary"
-										color="white"
-										fontFamily="var(--font-inter)"
-										_hover={{ bg: "accent.hover" }}
-										whileHover={{ scale: 1.05 }}
-										whileTap={{ scale: 0.97 }}
-										transition={{ duration: 0.2 }}
-									>
-										Reasons An Exhibitor
-										<ArrowDown01Icon />
-									</MotionButton>
-								</Menu.Trigger>
-								<Portal>
-									<Menu.Positioner>
-										<Menu.Content bg="gray.800" borderColor="gray.700">
-											<AnimatePresence>
-												<MotionBox
-													initial="hidden"
-													animate="visible"
-													exit="hidden"
-													variants={menuVariants}
-												>
-													{exhibitorMenuItems.map((item) => (
-														<MotionBox key={item.label} variants={itemVariants}>
-															<Menu.Item value={item.label} cursor="pointer">
-																<Text
-																	color="white"
-																	px={4}
-																	py={2}
-																	_hover={{ color: "accent" }}
-																>
-																	{item.label}
-																</Text>
-															</Menu.Item>
-														</MotionBox>
-													))}
-												</MotionBox>
-											</AnimatePresence>
-										</Menu.Content>
-									</Menu.Positioner>
-								</Portal>
-							</Menu.Root>
-						</Flex>
-						<Drawer.Root
-							open={isOpen}
-							placement="end"
-							size="sm"
-							onOpenChange={(details) => setIsOpen(details.open)}
-						>
-							<Drawer.Trigger asChild>
-								<IconButton
-									aria-label="Open menu"
-									as={Menu01Icon}
+					<HStack
+						gap={6}
+						display={{ base: "none", lg: "flex" }}
+						flex="2"
+						justify="center"
+					>
+						{navItems.map((item) => (
+							<NavLink
+								key={item.label}
+								href={item.href}
+								menuItems={item.menuItems}
+								onClose={() => setIsOpen(false)}
+							>
+								{item.label}
+							</NavLink>
+						))}
+					</HStack>
+					<Flex gap={6} display={{ base: "none", lg: "flex" }}>
+						<Menu.Root>
+							<Menu.Trigger>
+								<MotionButton
+									bg="summit-secondary"
 									color="white"
-									onClick={() => setIsOpen(true)}
-									variant="ghost"
-									fontSize="24px"
-									_hover={{
-										bg: "transparent",
-										color: "accent",
-										transform: "scale(1.1)",
-									}}
-									_active={{
-										bg: "transparent",
-										transform: "scale(0.97)",
-									}}
-									transition="all 0.2s"
-								/>
-							</Drawer.Trigger>
+									fontSize="0.8rem"
+									fontFamily="var(--font-inter)"
+									_hover={{ bg: "accent.hover" }}
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.97 }}
+									transition={{ duration: 0.2 }}
+								>
+									Become A Sponsor
+									<ArrowDown01Icon />
+								</MotionButton>
+							</Menu.Trigger>
 							<Portal>
-								<Drawer.Backdrop onClick={() => setIsOpen(false)} />
-								<Drawer.Positioner>
-									<Drawer.Content>
-										<Drawer.Body>
-											<VStack
-												align="start"
-												fontFamily="var(--font-raleway)"
-												fontWeight="500"
-												gap={3}
+								<Menu.Positioner>
+									<Menu.Content bg="gray.800" borderColor="gray.700">
+										<AnimatePresence>
+											<MotionBox
+												initial="hidden"
+												animate="visible"
+												exit="hidden"
+												variants={menuVariants}
 											>
-												<Flex justifyContent="space-between" w="100%">
-													<Flex gap="0.5rem">
-														<Image
-															src="/images/logo-v2.png"
-															alt="Summit SME Logo"
-															height="60px"
-															width="100px"
-															objectFit="cover"
-														/>
-														<Center
-															flexDir="column"
-															color="primary"
-															fontSize="0.7rem"
-															fontWeight="600"
-														>
-															<Text fontFamily="var(--font-inter)">
-																11 - 13 September 2025{" "}
+												{sponsorMenuItems.map((item) => (
+													<MotionBox key={item.label} variants={itemVariants}>
+														<Menu.Item value={item.label} cursor="pointer">
+															<Text
+																color="white"
+																px={4}
+																py={2}
+																_hover={{ color: "accent" }}
+															>
+																{item.label}
 															</Text>
-														</Center>
-													</Flex>
-													<Center>
-														<CloseButton
-															color="summit-secondary"
-															onClick={() => setIsOpen(false)}
-															size="lg"
-															_hover={{
-																color: "accent",
-																bg: "transparent",
-																transform: "scale(1.1)",
-															}}
-															_active={{
-																transform: "scale(0.97)",
-															}}
-															transition="all 0.2s"
-														/>
+														</Menu.Item>
+													</MotionBox>
+												))}
+											</MotionBox>
+										</AnimatePresence>
+									</Menu.Content>
+								</Menu.Positioner>
+							</Portal>
+						</Menu.Root>
+
+						<Menu.Root>
+							<Menu.Trigger>
+								<MotionButton
+									bg="summit-secondary"
+									color="white"
+									fontSize="0.8rem"
+									fontFamily="var(--font-inter)"
+									_hover={{ bg: "accent.hover" }}
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.97 }}
+									transition={{ duration: 0.2 }}
+								>
+									Reasons An Exhibitor
+									<ArrowDown01Icon />
+								</MotionButton>
+							</Menu.Trigger>
+							<Portal>
+								<Menu.Positioner>
+									<Menu.Content bg="gray.800" borderColor="gray.700">
+										<AnimatePresence>
+											<MotionBox
+												initial="hidden"
+												animate="visible"
+												exit="hidden"
+												variants={menuVariants}
+											>
+												{exhibitorMenuItems.map((item) => (
+													<MotionBox key={item.label} variants={itemVariants}>
+														<Menu.Item value={item.label} cursor="pointer">
+															<Text
+																color="white"
+																px={4}
+																py={2}
+																_hover={{ color: "accent" }}
+															>
+																{item.label}
+															</Text>
+														</Menu.Item>
+													</MotionBox>
+												))}
+											</MotionBox>
+										</AnimatePresence>
+									</Menu.Content>
+								</Menu.Positioner>
+							</Portal>
+						</Menu.Root>
+					</Flex>
+					<Drawer.Root
+						open={isOpen}
+						placement="end"
+						size="sm"
+						onOpenChange={(details) => setIsOpen(details.open)}
+					>
+						<Drawer.Trigger asChild>
+							<IconButton
+								aria-label="Open menu"
+								as={Menu01Icon}
+								color="white"
+								display={{ base: "block", lg: "none" }}
+								onClick={() => setIsOpen(true)}
+								variant="ghost"
+								fontSize="24px"
+								_hover={{
+									bg: "transparent",
+									color: "accent",
+									transform: "scale(1.1)",
+								}}
+								_active={{
+									bg: "transparent",
+									transform: "scale(0.97)",
+								}}
+								transition="all 0.2s"
+							/>
+						</Drawer.Trigger>
+						<Portal>
+							<Drawer.Backdrop onClick={() => setIsOpen(false)} />
+							<Drawer.Positioner>
+								<Drawer.Content>
+									<Drawer.Body>
+										<VStack
+											align="start"
+											fontFamily="var(--font-raleway)"
+											fontWeight="500"
+											gap={3}
+										>
+											<Flex justifyContent="space-between" w="100%">
+												<Flex gap="0.5rem">
+													<Image
+														src="/images/logo-v2.png"
+														alt="Summit SME Logo"
+														height="60px"
+														width="100px"
+														objectFit="cover"
+													/>
+													<Center
+														flexDir="column"
+														color="primary"
+														fontSize="0.7rem"
+														fontWeight="600"
+													>
+														<Text fontFamily="var(--font-inter)">
+															11 - 13 September 2025{" "}
+														</Text>
 													</Center>
 												</Flex>
-												{navItems.map((item) => (
-													<NavLink
-														key={item.label}
-														href={item.href}
-														menuItems={item.menuItems}
-														onClose={() => setIsOpen(false)}
+												<Center>
+													<CloseButton
+														color="summit-secondary"
+														onClick={() => setIsOpen(false)}
+														size="lg"
+														_hover={{
+															color: "accent",
+															bg: "transparent",
+															transform: "scale(1.1)",
+														}}
+														_active={{
+															transform: "scale(0.97)",
+														}}
+														transition="all 0.2s"
+													/>
+												</Center>
+											</Flex>
+											{navItems.map((item) => (
+												<NavLink
+													key={item.label}
+													href={item.href}
+													menuItems={item.menuItems}
+													onClose={() => setIsOpen(false)}
+													isMobile={true} // Add this prop
+												>
+													{item.label}
+												</NavLink>
+											))}
+											<Menu.Root>
+												<Menu.Trigger>
+													<MotionButton
+														bg="summit-secondary"
+														color="white"
+														fontFamily="var(--font-inter)"
+														_hover={{ bg: "accent.hover" }}
+														whileHover={{ scale: 1.05 }}
+														whileTap={{ scale: 0.97 }}
+														transition={{ duration: 0.2 }}
 													>
-														{item.label}
-													</NavLink>
-												))}
-												<Menu.Root>
-													<Menu.Trigger>
-														<MotionButton
-															bg="summit-secondary"
-															color="white"
-															fontFamily="var(--font-inter)"
-															_hover={{ bg: "accent.hover" }}
-															whileHover={{ scale: 1.05 }}
-															whileTap={{ scale: 0.97 }}
-															transition={{ duration: 0.2 }}
-														>
-															Become A Sponsor
-															<ArrowDown01Icon />
-														</MotionButton>
-													</Menu.Trigger>
-													<Portal>
-														<Menu.Positioner>
-															<Menu.Content
-																bg="gray.800"
-																borderColor="gray.700"
-															>
-																<AnimatePresence>
-																	<MotionBox
-																		initial="hidden"
-																		animate="visible"
-																		exit="hidden"
-																		variants={menuVariants}
-																	>
-																		{sponsorMenuItems.map((item) => (
-																			<MotionBox
-																				key={item.label}
-																				variants={itemVariants}
+														Become A Sponsor
+														<ArrowDown01Icon />
+													</MotionButton>
+												</Menu.Trigger>
+												<Portal>
+													<Menu.Positioner>
+														<Menu.Content bg="gray.800" borderColor="gray.700">
+															<AnimatePresence>
+																<MotionBox
+																	initial="hidden"
+																	animate="visible"
+																	exit="hidden"
+																	variants={menuVariants}
+																>
+																	{sponsorMenuItems.map((item) => (
+																		<MotionBox
+																			key={item.label}
+																			variants={itemVariants}
+																		>
+																			<Menu.Item
+																				value={item.label}
+																				cursor="pointer"
 																			>
-																				<Menu.Item
-																					value={item.label}
-																					cursor="pointer"
+																				<Text
+																					color="white"
+																					px={4}
+																					py={2}
+																					_hover={{ color: "accent" }}
 																				>
-																					<Text
-																						color="white"
-																						px={4}
-																						py={2}
-																						_hover={{ color: "accent" }}
-																					>
-																						{item.label}
-																					</Text>
-																				</Menu.Item>
-																			</MotionBox>
-																		))}
-																	</MotionBox>
-																</AnimatePresence>
-															</Menu.Content>
-														</Menu.Positioner>
-													</Portal>
-												</Menu.Root>
+																					{item.label}
+																				</Text>
+																			</Menu.Item>
+																		</MotionBox>
+																	))}
+																</MotionBox>
+															</AnimatePresence>
+														</Menu.Content>
+													</Menu.Positioner>
+												</Portal>
+											</Menu.Root>
 
-												<Menu.Root>
-													<Menu.Trigger>
-														<MotionButton
-															bg="summit-secondary"
-															color="white"
-															fontFamily="var(--font-inter)"
-															_hover={{ bg: "accent.hover" }}
-															whileHover={{ scale: 1.05 }}
-															whileTap={{ scale: 0.97 }}
-															transition={{ duration: 0.2 }}
-														>
-															Reasons An Exhibitor
-															<ArrowDown01Icon />
-														</MotionButton>
-													</Menu.Trigger>
-													<Portal>
-														<Menu.Positioner>
-															<Menu.Content
-																bg="gray.800"
-																borderColor="gray.700"
-															>
-																<AnimatePresence>
-																	<MotionBox
-																		initial="hidden"
-																		animate="visible"
-																		exit="hidden"
-																		variants={menuVariants}
-																	>
-																		{exhibitorMenuItems.map((item) => (
-																			<MotionBox
-																				key={item.label}
-																				variants={itemVariants}
+											<Menu.Root>
+												<Menu.Trigger>
+													<MotionButton
+														bg="summit-secondary"
+														color="white"
+														fontFamily="var(--font-inter)"
+														_hover={{ bg: "accent.hover" }}
+														whileHover={{ scale: 1.05 }}
+														whileTap={{ scale: 0.97 }}
+														transition={{ duration: 0.2 }}
+													>
+														Reasons An Exhibitor
+														<ArrowDown01Icon />
+													</MotionButton>
+												</Menu.Trigger>
+												<Portal>
+													<Menu.Positioner>
+														<Menu.Content bg="gray.800" borderColor="gray.700">
+															<AnimatePresence>
+																<MotionBox
+																	initial="hidden"
+																	animate="visible"
+																	exit="hidden"
+																	variants={menuVariants}
+																>
+																	{exhibitorMenuItems.map((item) => (
+																		<MotionBox
+																			key={item.label}
+																			variants={itemVariants}
+																		>
+																			<Menu.Item
+																				value={item.label}
+																				cursor="pointer"
 																			>
-																				<Menu.Item
-																					value={item.label}
-																					cursor="pointer"
+																				<Text
+																					color="white"
+																					px={4}
+																					py={2}
+																					_hover={{ color: "accent" }}
 																				>
-																					<Text
-																						color="white"
-																						px={4}
-																						py={2}
-																						_hover={{ color: "accent" }}
-																					>
-																						{item.label}
-																					</Text>
-																				</Menu.Item>
-																			</MotionBox>
-																		))}
-																	</MotionBox>
-																</AnimatePresence>
-															</Menu.Content>
-														</Menu.Positioner>
-													</Portal>
-												</Menu.Root>
-											</VStack>
-										</Drawer.Body>
-									</Drawer.Content>
-								</Drawer.Positioner>
-							</Portal>
-						</Drawer.Root>
-					</HStack>
+																					{item.label}
+																				</Text>
+																			</Menu.Item>
+																		</MotionBox>
+																	))}
+																</MotionBox>
+															</AnimatePresence>
+														</Menu.Content>
+													</Menu.Positioner>
+												</Portal>
+											</Menu.Root>
+										</VStack>
+									</Drawer.Body>
+								</Drawer.Content>
+							</Drawer.Positioner>
+						</Portal>
+					</Drawer.Root>
 				</Flex>
 			</Container>
 		</MotionBox>
@@ -446,6 +459,7 @@ interface NavLinkProps {
 	children: React.ReactNode;
 	menuItems?: { label: string; href: string }[];
 	onClose?: () => void;
+	isMobile?: boolean; // Add this prop
 }
 
 export const NavLink = ({
@@ -453,6 +467,7 @@ export const NavLink = ({
 	children,
 	menuItems,
 	onClose,
+	isMobile = false,
 }: NavLinkProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const router = useRouter(); // Add this
@@ -476,49 +491,94 @@ export const NavLink = ({
 		if (onClose) onClose();
 	};
 
-	if (menuItems) {
+	if (menuItems && isMobile) {
 		return (
-			<VStack align="start" gap={1}>
+			<VStack align="start" gap={2} w="full">
 				<MotionButton
 					variant="ghost"
+					bg="pink"
 					fontFamily="var(--font-inter)"
+					onClick={() => setIsOpen(!isOpen)}
 					color="primary"
 					_hover={{ color: "accent" }}
 					whileHover={{ scale: 1.05 }}
 					whileTap={{ scale: 0.97 }}
-					onClick={() => setIsOpen(!isOpen)}
 					transition={{ duration: 0.2 }}
 				>
 					{children}
+					<ArrowDown01Icon />
 				</MotionButton>
 
 				<AnimatePresence>
 					{isOpen && (
 						<MotionBox
-							initial="hidden"
-							animate="visible"
-							exit="hidden"
-							variants={menuVariants}
+							initial={{ opacity: 0, y: -5 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -5 }}
+							w="full"
 						>
 							{menuItems.map((item) => (
-								<MotionBox key={item.label} variants={itemVariants}>
-									<Text
-										color="primary"
-										fontSize="sm"
-										pl={4}
-										py={2}
-										cursor="pointer"
-										onClick={() => handleNavigation(item.href)}
-										_hover={{ color: "accent" }}
-									>
-										{item.label}
-									</Text>
-								</MotionBox>
+								<Text
+									key={item.label}
+									color="gray.400"
+									fontSize="sm"
+									py={2}
+									cursor="pointer"
+									onClick={() => handleNavigation(item.href)}
+									_hover={{ color: "accent" }}
+								>
+									{item.label}
+								</Text>
 							))}
 						</MotionBox>
 					)}
 				</AnimatePresence>
 			</VStack>
+		);
+	}
+
+	// In the NavLink component, update the menuItems condition:
+	if (menuItems) {
+		return (
+			<Menu.Root>
+				<Menu.Trigger>
+					<MotionButton
+						variant="ghost"
+						fontFamily="var(--font-inter)"
+						color="primary"
+						fontSize="0.8rem"
+						_hover={{ color: "accent" }}
+						whileHover={{ scale: 1.05 }}
+						transition={{ duration: 0.2 }}
+					>
+						{children}
+						<ArrowDown01Icon />
+					</MotionButton>
+				</Menu.Trigger>
+				<Portal>
+					<Menu.Positioner>
+						<Menu.Content bg="gray.800" borderColor="gray.700" minW="200px">
+							{menuItems.map((item) => (
+								<Menu.Item
+									key={item.label}
+									onClick={() => handleNavigation(item.href)}
+									value=""
+								>
+									<Text
+										color="white"
+										px={4}
+										cursor="pointer"
+										py={2}
+										_hover={{ color: "accent" }}
+									>
+										{item.label}
+									</Text>
+								</Menu.Item>
+							))}
+						</Menu.Content>
+					</Menu.Positioner>
+				</Portal>
+			</Menu.Root>
 		);
 	}
 
@@ -528,6 +588,7 @@ export const NavLink = ({
 				variant="ghost"
 				fontFamily="var(--font-inter)"
 				color="primary"
+				fontSize="0.8rem"
 				_hover={{ color: "accent" }}
 				whileHover={{ scale: 1.05 }}
 				whileTap={{ scale: 0.97 }}
