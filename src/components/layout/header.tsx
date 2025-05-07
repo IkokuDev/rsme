@@ -78,10 +78,10 @@ export const Header = () => {
 			menuItems: [
 				{
 					label: "Overview",
-					href: "/speakers/keynotes",
+					href: "/evangelist/overview",
 				},
-				{ label: "7 Day ACtion Plan", href: "#partnership" },
-				{ label: "Resources", href: "/speakers/experts" },
+				{ label: "7 Day Action Plan", href: "/evangelist/action-plan" },
+				{ label: "Resources", href: "/evangelist/resources" },
 			],
 		},
 	];

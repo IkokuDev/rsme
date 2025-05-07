@@ -119,7 +119,6 @@ export const Evangelist = () => {
 							bgGradient="linear-gradient(to right, #B8B8B8, #8B1A2F)"
 							lineHeight="normal"
 							css={{
-								background: "linear-gradient(to right, #7928CA, #FF0080)",
 								WebkitBackgroundClip: "text",
 								WebkitTextFillColor: "transparent",
 								backgroundClip: "text",
@@ -276,16 +275,8 @@ export const Evangelist = () => {
 					</Box>
 
 					{/* Contact Button */}
-					{/* <Button
-						colorScheme="accent"
-						size="lg"
-						onClick={() => window.open("https://wa.me/2349167338000")}
-					>
-						<WhatsappIcon />
-						Join WhatsApp Group
-					</Button> */}
 					<Button
-						aria-label="Twitter"
+						aria-label="Whatsapp"
 						variant="ghost"
 						color="#B8B8B8"
 						_hover={{ color: "summit-secondary" }}

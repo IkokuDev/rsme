@@ -1,4 +1,5 @@
 import { Box, Button } from "@chakra-ui/react";
+import { Tooltip } from "@/components/ui/tooltip";
 
 import SimpleSlider from "@/components/layout/slider";
 import { Hero } from "@/components/layout/hero";
@@ -10,46 +11,51 @@ import Partnership from "@/components/layout/partner/partnership";
 import { Evangelist } from "@/components/layout/evangelist";
 
 export default function Home() {
-	return (
-		<Box css={{ "&::-webkit-scrollbar": { display: "none" } }}>
-			<Hero />
-			<SimpleSlider />
-			<Box id="pricing">
-				<MembershipTiers />
-			</Box>
-			<Box id="partnership">
-				<Partnership />
-			</Box>
-			<CaseStudy />
-			<Evangelist />
-			<Updates />
-			{/* Fixed Button */}
-			<Box
-				position="fixed"
-				top="50%"
-				right="-60px"
-				transform="translateX(-50%)"
-				zIndex="overlay"
-			>
-				<Button
-					bg="summit-secondary"
-					color="white"
-					size="lg"
-					display="flex"
-					alignItems="center"
-					gap={2}
-					fontSize="small"
-					px={4}
-					_hover={{ bg: "accent.hover" }}
-					borderRadius="full"
-					boxShadow="lg"
-				>
-					Buy Ticket
-					<Box color="white">
-						<SaleTag02Icon size={20} />
-					</Box>
-				</Button>
-			</Box>
-		</Box>
-	);
+  return (
+    <Box css={{ "&::-webkit-scrollbar": { display: "none" } }}>
+      <Hero />
+      <SimpleSlider />
+      <Box id="pricing">
+        <MembershipTiers />
+      </Box>
+      <Box id="partnership">
+        <Partnership />
+      </Box>
+      <CaseStudy />
+      <Evangelist />
+      <Updates />
+      {/* Fixed Button */}
+      <Box
+        position="fixed"
+        top="50%"
+        right="-60px"
+        transform="translateX(-50%)"
+        zIndex="overlay"
+      >
+        <Tooltip
+          content="Ticketing opens July 1, 2025"
+          positioning={{ placement: "left" }}
+        >
+          <Button
+            bg="summit-secondary"
+            color="white"
+            size="lg"
+            display="flex"
+            alignItems="center"
+            gap={2}
+            fontSize="small"
+            px={4}
+            _hover={{ bg: "accent.hover" }}
+            borderRadius="full"
+            boxShadow="lg"
+          >
+            Buy Ticket
+            <Box color="white">
+              <SaleTag02Icon size={20} />
+            </Box>
+          </Button>
+        </Tooltip>
+      </Box>
+    </Box>
+  );
 }
