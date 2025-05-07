@@ -96,7 +96,7 @@ const Partnership = () => {
 						color="white"
 						textAlign="center"
 					>
-						Sponsorhip And Partnership Opportunities
+						Sponsorhip & Partnership Opportunities
 					</Heading>
 
 					<SimpleGrid columns={{ base: 1, md: 2 }} gap={8} w="full">
