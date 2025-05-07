@@ -20,6 +20,7 @@ import { Menu01Icon, ArrowDown01Icon } from "hugeicons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const MotionBox = motion(Box);
@@ -74,7 +75,7 @@ export const Header = () => {
 		},
 		{
 			label: "Success Evangelist",
-			href: "/partner",
+			href: "",
 			menuItems: [
 				{
 					label: "Overview",
@@ -479,7 +480,22 @@ export const NavLink = ({
 	isMobile = false,
 }: NavLinkProps) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const router = useRouter(); // Add this
+	const router = useRouter();
+	const pathname = usePathname(); // Add this
+
+	const isActive =
+		pathname === href ||
+		menuItems?.some((item) => pathname === item.href) ||
+		(pathname?.startsWith(href) && href !== "");
+
+	console.log(pathname);
+	console.log(menuItems?.some((item) => item.href));
+	console.log(menuItems?.some((item) => pathname === item.href));
+
+	console.log("Current pathname:", pathname);
+	console.log("Menu Items:", menuItems);
+	console.log("Current href:", href);
+	console.log("Is Active:", isActive);
 
 	const handleNavigation = (targetHref: string) => {
 		if (targetHref.startsWith("#")) {
@@ -508,7 +524,7 @@ export const NavLink = ({
 					bg="pink"
 					fontFamily="var(--font-inter)"
 					onClick={() => setIsOpen(!isOpen)}
-					color="primary"
+					color={isActive ? "summit-secondary" : "primary"}
 					_hover={{ color: "accent" }}
 					whileHover={{ scale: 1.05 }}
 					whileTap={{ scale: 0.97 }}
@@ -529,7 +545,9 @@ export const NavLink = ({
 							{menuItems.map((item) => (
 								<Text
 									key={item.label}
-									color="gray.400"
+									color={
+										pathname === item.href ? "summit-secondary" : "gray.400"
+									}
 									fontSize="sm"
 									py={2}
 									cursor="pointer"
@@ -554,7 +572,7 @@ export const NavLink = ({
 					<MotionButton
 						variant="ghost"
 						fontFamily="var(--font-inter)"
-						color="primary"
+						color={isActive ? "summit-secondary" : "primary"}
 						fontSize="0.8rem"
 						_hover={{ color: "accent" }}
 						whileHover={{ scale: 1.05 }}
@@ -574,7 +592,9 @@ export const NavLink = ({
 									value=""
 								>
 									<Text
-										color="white"
+										color={
+											pathname === item.href ? "summit-secondary" : "white"
+										}
 										px={4}
 										cursor="pointer"
 										py={2}
@@ -596,7 +616,7 @@ export const NavLink = ({
 			<MotionButton
 				variant="ghost"
 				fontFamily="var(--font-inter)"
-				color="primary"
+				color={isActive ? "summit-secondary" : "primary"}
 				fontSize="0.8rem"
 				_hover={{ color: "accent" }}
 				whileHover={{ scale: 1.05 }}
