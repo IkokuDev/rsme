@@ -93,7 +93,7 @@ export const Header = () => {
 	];
 
 	const exhibitorMenuItems = [
-		{ label: "Exhibition Overview", href: "#spaces" },
+		{ label: "Exhibition Overview", href: "/exhibition/overview" },
 		{ label: "Exhibitor Opportunities", href: "#package" },
 		{ label: "Exhibitor Guides & Resources", href: "#apply" },
 		{ label: "FAQ", href: "#apply" },
@@ -189,14 +189,16 @@ export const Header = () => {
 												{sponsorMenuItems.map((item) => (
 													<MotionBox key={item.label} variants={itemVariants}>
 														<Menu.Item value={item.label} cursor="pointer">
-															<Text
-																color="white"
-																px={4}
-																py={2}
-																_hover={{ color: "accent" }}
-															>
-																{item.label}
-															</Text>
+															<Link href={item.href}>
+																<Text
+																	color="white"
+																	px={4}
+																	py={2}
+																	_hover={{ color: "accent" }}
+																>
+																	{item.label}
+																</Text>
+															</Link>
 														</Menu.Item>
 													</MotionBox>
 												))}
@@ -236,14 +238,16 @@ export const Header = () => {
 												{exhibitorMenuItems.map((item) => (
 													<MotionBox key={item.label} variants={itemVariants}>
 														<Menu.Item value={item.label} cursor="pointer">
-															<Text
-																color="white"
-																px={4}
-																py={2}
-																_hover={{ color: "accent" }}
-															>
-																{item.label}
-															</Text>
+															<Link href={item.href}>
+																<Text
+																	color="white"
+																	px={4}
+																	py={2}
+																	_hover={{ color: "accent" }}
+																>
+																	{item.label}
+																</Text>
+															</Link>
 														</Menu.Item>
 													</MotionBox>
 												))}
@@ -374,14 +378,16 @@ export const Header = () => {
 																				value={item.label}
 																				cursor="pointer"
 																			>
-																				<Text
-																					color="white"
-																					px={4}
-																					py={2}
-																					_hover={{ color: "accent" }}
-																				>
-																					{item.label}
-																				</Text>
+																				<Link href={item.href}>
+																					<Text
+																						color="white"
+																						px={4}
+																						py={2}
+																						_hover={{ color: "accent" }}
+																					>
+																						{item.label}
+																					</Text>
+																				</Link>
 																			</Menu.Item>
 																		</MotionBox>
 																	))}
@@ -426,14 +432,16 @@ export const Header = () => {
 																				value={item.label}
 																				cursor="pointer"
 																			>
-																				<Text
-																					color="white"
-																					px={4}
-																					py={2}
-																					_hover={{ color: "accent" }}
-																				>
-																					{item.label}
-																				</Text>
+																				<Link href={item.href}>
+																					<Text
+																						color="white"
+																						px={4}
+																						py={2}
+																						_hover={{ color: "accent" }}
+																					>
+																						{item.label}
+																					</Text>
+																				</Link>
 																			</Menu.Item>
 																		</MotionBox>
 																	))}
