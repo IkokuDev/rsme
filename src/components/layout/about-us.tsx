@@ -40,12 +40,7 @@ const benefits = [
 
 const AboutUs = () => {
 	return (
-		<Box
-			bg="gray.900"
-			py={{ base: 10, md: 16, lg: 20 }}
-			px={{ base: 4, md: 6 }}
-			id="#about"
-		>
+		<Box bg="gray.900" py="10rem" px={{ base: 4, md: 6 }} id="#about">
 			<Container maxW="7xl">
 				<Grid
 					templateColumns={{ base: "1fr", lg: "1fr 1fr" }}

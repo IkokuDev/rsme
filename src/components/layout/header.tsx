@@ -55,7 +55,7 @@ export const Header = () => {
 			label: "Register",
 			href: "",
 			menuItems: [
-				{ label: "About Us", href: "/about" },
+				{ label: "About Us", href: "/register/about" },
 				{ label: "Ticket Options", href: "/pricing" },
 				{ label: "How To Register", href: "/register" },
 				{ label: "Additional Information & Support", href: "/info" },
