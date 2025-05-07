@@ -95,9 +95,9 @@ export const Header = () => {
 
 	const exhibitorMenuItems = [
 		{ label: "Exhibition Overview", href: "/exhibition/overview" },
-		{ label: "Exhibitor Opportunities", href: "#package" },
-		{ label: "Exhibitor Guides & Resources", href: "#apply" },
-		{ label: "FAQ", href: "#apply" },
+		{ label: "Exhibitor Opportunities", href: "/exhibition/opportunities" },
+		{ label: "Exhibitor Guides & Resources", href: "/exhibition/resources" },
+		{ label: "FAQ", href: "/" },
 	];
 
 	return (
@@ -487,15 +487,6 @@ export const NavLink = ({
 		pathname === href ||
 		menuItems?.some((item) => pathname === item.href) ||
 		(pathname?.startsWith(href) && href !== "");
-
-	console.log(pathname);
-	console.log(menuItems?.some((item) => item.href));
-	console.log(menuItems?.some((item) => pathname === item.href));
-
-	console.log("Current pathname:", pathname);
-	console.log("Menu Items:", menuItems);
-	console.log("Current href:", href);
-	console.log("Is Active:", isActive);
 
 	const handleNavigation = (targetHref: string) => {
 		if (targetHref.startsWith("#")) {
