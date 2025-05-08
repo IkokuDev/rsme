@@ -91,14 +91,20 @@ export const Header = () => {
 	const sponsorMenuItems = [
 		{ label: "Sponsor Overview", href: "#benefits" },
 		{ label: "Sponsor Benefits", href: "#sponsorship-tiers" },
-		{ label: "Sign Up", href: "#contact" },
+		{
+			label: "Sign Up",
+			href: "https://docs.google.com/forms/d/e/1FAIpQLSdRXSjr-YquwnTkixs65mmmQAl6D-GVJ_LTQrKYnODx4gYSiQ/viewform",
+		},
 	];
 
 	const exhibitorMenuItems = [
 		{ label: "Exhibition Overview", href: "/exhibition/overview" },
 		{ label: "Exhibitor Opportunities", href: "/exhibition/opportunities" },
 		{ label: "Exhibitor Guides & Resources", href: "/exhibition/resources" },
-		{ label: "FAQ", href: "/" },
+		{
+			label: "Sign Up",
+			href: "https://docs.google.com/forms/d/e/1FAIpQLScbHaCZfDelr7xYsQjOLvVYYQGAU1zWGsqBJe6zd44Bs46UCA/viewform",
+		},
 	];
 
 	return (
