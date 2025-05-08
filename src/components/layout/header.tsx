@@ -53,11 +53,12 @@ export const Header = () => {
 	const navItems = [
 		{
 			label: "Register",
-			href: "",
+			href: "#register",
 			menuItems: [
 				{ label: "About Us", href: "/register/about" },
-				{ label: "Ticket Options", href: "/pricing" },
-				{ label: "How To Register", href: "/register" },
+				{ label: "Ticket Options", href: "#ticket" },
+				{ label: "How To Register", href: "#register" },
+				{ label: "FAQ", href: "/register/faq" },
 				{ label: "Additional Information & Support", href: "/info" },
 			],
 		},
@@ -512,7 +513,6 @@ export const NavLink = ({
 			<VStack align="start" gap={2} w="full">
 				<MotionButton
 					variant="ghost"
-					bg="pink"
 					fontFamily="var(--font-inter)"
 					onClick={() => setIsOpen(!isOpen)}
 					color={isActive ? "summit-secondary" : "primary"}
