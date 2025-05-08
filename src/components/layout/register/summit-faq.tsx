@@ -298,6 +298,9 @@ export const SummitFAQ = () => {
 							>
 								Email Support
 							</Button>
+							<Button variant="outline" bg="summit-secondary" color="white">
+								Live Chat
+							</Button>
 						</SimpleGrid>
 					</Box>
 				</VStack>
