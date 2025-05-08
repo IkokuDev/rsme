@@ -217,7 +217,21 @@ export const Header = () => {
 							</Portal>
 						</Menu.Root>
 
-						<Menu.Root>
+<Link href="/exhibition/coming-soon">
+						<MotionButton
+									bg="summit-secondary"
+									color="white"
+									fontSize="0.8rem"
+									fontFamily="var(--font-inter)"
+									_hover={{ bg: "accent.hover" }}
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.97 }}
+									transition={{ duration: 0.2 }}
+								>
+									Become An Exhibitor
+								</MotionButton>
+								</Link>
+						{/* <Menu.Root>
 							<Menu.Trigger>
 								<MotionButton
 									bg="summit-secondary"
@@ -264,7 +278,7 @@ export const Header = () => {
 									</Menu.Content>
 								</Menu.Positioner>
 							</Portal>
-						</Menu.Root>
+						</Menu.Root> */}
 					</Flex>
 					<Drawer.Root
 						open={isOpen}
