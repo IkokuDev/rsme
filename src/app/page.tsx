@@ -1,5 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
-import { Tooltip } from "@/components/ui/tooltip";
+import { Box, Button, VStack, Text } from "@chakra-ui/react";
 
 import SimpleSlider from "@/components/layout/slider";
 import { Hero } from "@/components/layout/hero";
@@ -30,16 +29,10 @@ export default function Home() {
 				top={{ base: "auto", md: "50%" }}
 				bottom={{ base: "20px", md: "auto" }}
 				right={{ base: "50%", md: "-60px" }}
-				transform={{
-					base: "translateX(50%)",
-					md: "translateX(-50%)",
-				}}
+				transform="translateX(-50%)"
 				zIndex="overlay"
 			>
-				<Tooltip
-					content="Ticketing opens July 1, 2025"
-					positioning={{ placement: "left" }}
-				>
+				<VStack gap={2}>
 					<Button
 						bg="summit-secondary"
 						color="white"
@@ -59,7 +52,10 @@ export default function Home() {
 							<SaleTag02Icon size={20} />
 						</Box>
 					</Button>
-				</Tooltip>
+					<Text fontSize="xs" color="gray.300" textAlign="center">
+						Ticketing opens July 1, 2025
+					</Text>
+				</VStack>
 			</Box>
 		</Box>
 	);
