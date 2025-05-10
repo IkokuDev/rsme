@@ -97,6 +97,7 @@ const SimpleSlider = () => {
 						<Box
 							key={slide.name}
 							bg="rgba(0, 0, 0, 0.6)"
+							borderRadius="xl"
 							position="relative"
 							pb="80px"
 							minH="500px"

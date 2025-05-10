@@ -27,7 +27,7 @@ export const SignUp = () => {
 					<VStack gap={8} textAlign="center">
 						<Heading
 							size="2xl"
-							color="summit.primary"
+							color="summit-primary"
 							fontFamily="var(--font-poppins)"
 						>
 							Ready to Make an Impact?

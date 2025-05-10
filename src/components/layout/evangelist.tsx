@@ -137,7 +137,7 @@ export const Evangelist = () => {
 					<SimpleGrid columns={{ base: 1, md: 2 }} gap={8} w="full">
 						<Card.Root bg="whiteAlpha.100" borderRadius="xl">
 							<CardHeader>
-								<Heading size="md" color="summit.secondary">
+								<Heading size="md" color="summit-secondary">
 									Your Mission
 								</Heading>
 							</CardHeader>
@@ -168,7 +168,7 @@ export const Evangelist = () => {
 
 						<Card.Root bg="whiteAlpha.100" borderRadius="xl">
 							<CardHeader>
-								<Heading size="md" color="summit.secondary">
+								<Heading size="md" color="summit-secondary">
 									Your Rewards
 								</Heading>
 							</CardHeader>
@@ -185,7 +185,7 @@ export const Evangelist = () => {
 											gap={3}
 											color="gray.300"
 										>
-											<Icon fontSize="lg" color="fg.subtle">
+											<Icon fontSize="lg" color="green.500">
 												<CheckmarkCircle01Icon />
 											</Icon>
 											<Text>{item}</Text>
@@ -210,7 +210,7 @@ export const Evangelist = () => {
 									value={day.title}
 								>
 									<Accordion.ItemTrigger cursor="pointer">
-										<Span flex="1" color="summit.secondary" fontWeight="bold">
+										<Span flex="1" color="summit-secondary" fontWeight="bold">
 											{day.day}: {day.title}
 										</Span>
 										<Accordion.ItemIndicator />
@@ -225,7 +225,7 @@ export const Evangelist = () => {
 														display="flex"
 														color="gray.300"
 													>
-														<Icon fontSize="lg" mt={1} color="accent">
+														<Icon fontSize="lg" color="accent">
 															<ArrowRightDoubleIcon />
 														</Icon>
 														<Text>{task}</Text>
@@ -252,18 +252,18 @@ export const Evangelist = () => {
 						borderRadius="xl"
 						textAlign="center"
 					>
-						<Heading size="md" color="summit.secondary" mb={4}>
+						<Heading size="md" color="summit-secondary" mb={4}>
 							Important Dates
 						</Heading>
 						<SimpleGrid columns={{ base: 1, md: 2 }} gap={4}>
 							<Box>
-								<Badge colorScheme="red" mb={2}>
+								<Badge colorPalette="red" mb={2}>
 									Cut-off
 								</Badge>
 								<Text color="white">August 30, 2025</Text>
 							</Box>
 							<Box>
-								<Badge colorScheme="green" mb={2}>
+								<Badge colorPalette="green" mb={2}>
 									Event
 								</Badge>
 								<Text color="white">Sept 11–13, 2025</Text>

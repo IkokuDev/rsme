@@ -68,7 +68,7 @@ export const Overview = () => {
           >
             <Card.Root bg="whiteAlpha.100" borderRadius="xl">
               <CardHeader>
-                <Heading size="md" color="summit.secondary">
+                <Heading size="md" color="summit-secondary">
                   Your Mission
                 </Heading>
               </CardHeader>
@@ -111,7 +111,7 @@ export const Overview = () => {
 
             <Card.Root bg="whiteAlpha.100" borderRadius="xl">
               <CardHeader>
-                <Heading size="md" color="summit.secondary">
+                <Heading size="md" color="summit-secondary">
                   Your Rewards
                 </Heading>
               </CardHeader>
@@ -148,7 +148,7 @@ export const Overview = () => {
           >
           <Card.Root bg="whiteAlpha.100" borderRadius="xl" w="full">
             <CardHeader>
-              <Heading size="md" color="summit.secondary">
+              <Heading size="md" color="summit-secondary">
                 WhatsApp Accountability Group
               </Heading>
             </CardHeader>
@@ -203,7 +203,7 @@ export const Overview = () => {
           {/* Important Dates */}
           <Card.Root bg="whiteAlpha.100" borderRadius="xl" w="full">
             <CardHeader>
-              <Heading size="md" color="summit.secondary">
+              <Heading size="md" color="summit-secondary">
                 Important Dates
               </Heading>
             </CardHeader>
@@ -217,13 +217,13 @@ export const Overview = () => {
           >
               <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
                 <Box>
-                  <Badge colorScheme="red">Cut-off</Badge>
+                  <Badge colorPalette="red">Cut-off</Badge>
                   <Text color="white" mt={2}>
                     August 30, 2025
                   </Text>
                 </Box>
                 <Box>
-                  <Badge colorScheme="green">Event</Badge>
+                  <Badge colorPalette="green">Event</Badge>
                   <Text color="white" mt={2}>
                     Sept 11–13, 2025
                   </Text>
