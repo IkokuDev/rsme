@@ -72,7 +72,7 @@ export const SignUp = () => {
 								transition="all 0.2s"
 							>
 								<AiPhone01Icon />
-								+234 800 123 4567
+								+234 916 733 8000
 							</Button>
 						</Flex>
 

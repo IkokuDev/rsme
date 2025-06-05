@@ -84,7 +84,7 @@ export const Hero = () => {
 							lineHeight="short"
 							color="fg.light"
 						>
-							Welcome to Summit SME
+							Welcome to the Annual SME Summit
 						</Heading>
 						<Text
 							fontSize={{ base: "md", sm: "lg", md: "xl" }}

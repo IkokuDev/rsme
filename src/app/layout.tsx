@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: "Rebel SME Summit 2024",
+	title: "Rebel SME Summit 2025",
 	description:
 		"Join the world's leading innovators for three days of groundbreaking insights and technological advancement.",
     icons: {

@@ -22,7 +22,7 @@ export const Contact = () => {
           </Button>
           <Button colorScheme="blue" size="lg" variant="outline">
             <AiPhone01Icon />
-            +234-XXX-XXXX-XXX
+            +234-916-733-8000
           </Button>
         </Flex>
       </VStack>

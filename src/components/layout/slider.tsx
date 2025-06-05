@@ -36,23 +36,23 @@ const SimpleSlider = () => {
 
 	const slides = [
 		{
-			image: "/images/avatar.jpg",
-			name: "John Doe",
-			topic: "AI-Driven Growth for SMEs",
+			image: "/images/ifeanyiukoha.jpg",
+			name: "Ifeanyi Ukoha, Head Zonal Coordination, NCDMB",
+			topic: "Local Content Funding Opportunities and How to Access Them",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/john-doe",
 		},
 		{
-			image: "/images/avatar-1.jpg",
-			name: "Fatima Ali",
-			topic: "Social Media as a Sales Engine",
+			image: "/images/olusegunomosehin.jpg",
+			name: "Olusegun Ayo Omosehin, Commissioner for Insurance/CEO, NAICOM",
+			topic: "Ring-Fencing! How Vibrant Insurance Regulation is Securing SME Sustainability",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/fatima-ali",
 		},
 		{
-			image: "/images/avatar-2.jpg",
-			name: "Marcus Ng",
-			topic: "Bootstrap to Breakthrough: Funding Tactics",
+			image: "/images/samikoku.jpg",
+			name: "Dr Sam Ikoku",
+			topic: "Innovative Financing for RebelSMEs: Beyond Traditional Banks",
 			buttonText: "View Profile",
 			buttonLink: "/speakers/marcus-ng",
 		},
