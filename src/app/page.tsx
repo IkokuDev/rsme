@@ -1,5 +1,5 @@
 import { Box, Button, VStack, Text } from "@chakra-ui/react";
-
+import Link from "next/link";
 import SimpleSlider from "@/components/layout/slider";
 import { Hero } from "@/components/layout/hero";
 import { CaseStudy } from "@/components/layout/case-study";
@@ -32,26 +32,27 @@ export default function Home() {
 				transform="translateX(-50%)"
 				zIndex="overlay"
 			>
-				<VStack gap={2}>
-					<Button
-						bg="summit-secondary"
-						color="white"
-						size={{ base: "md", md: "lg" }}
-						display="flex"
-						alignItems="center"
-						gap={2}
-						fontSize="small"
-						px={4}
-						_hover={{ bg: "accent.hover" }}
-						borderRadius="full"
-						boxShadow="lg"
-						w={{ base: "auto", md: "auto" }}
-					>
-						Buy Ticket
-						<Box color="white">
-							<SaleTag02Icon size={20} />
-						</Box>
-					</Button>
+				<VStack gap={2}>					<Link href="/tickets">
+						<Button
+							bg="summit-secondary"
+							color="white"
+							size={{ base: "md", md: "lg" }}
+							display="flex"
+							alignItems="center"
+							gap={2}
+							fontSize="small"
+							px={4}
+							_hover={{ bg: "accent.hover" }}
+							borderRadius="full"
+							boxShadow="lg"
+							w={{ base: "auto", md: "auto" }}
+						>
+							Buy Ticket
+							<Box color="white">
+								<SaleTag02Icon size={20} />
+							</Box>
+						</Button>
+					</Link>
 					<Text fontSize="xs" color="gray.300" textAlign="center">
 						Ticketing opens July 1, 2025
 					</Text>

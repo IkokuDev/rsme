@@ -50,7 +50,7 @@ const SimpleSlider = () => {
 			buttonLink: "/speakers/fatima-ali",
 		},
 		{
-			image: "/images/samikoku.jpg",
+			image: "/images/samikoku1.jpg",
 			name: "Dr Sam Ikoku",
 			topic: "Innovative Financing for RebelSMEs: Beyond Traditional Banks",
 			buttonText: "View Profile",
